@@ -1,0 +1,23 @@
+{
+    "thresholds": {
+      "overall": 80,
+      "src": 85,
+      "othersrc": 90
+    },
+    "exclude": [
+      "node_modules/**",
+      "dist/**",
+      "coverage/**",
+      "*.test.ts"
+    ],
+    "include": [
+      "src/**/*.ts",
+      "src/**/*.js",
+      "othersrc/**/*.ts"
+    ],
+    "categories": ["DOC", "ADR", "CTX"],
+    "memoryStorePath": "./docs/md",
+    "indexPath": "./docs/db",
+    "rootDir": "./",
+    "scanSourceFiles": true
+  }

@@ -1,0 +1,31 @@
+# TypeScript Coding Standards
+
+## Code Style
+- **Semicolons**: Always use semicolons (enforced by ESLint)
+- **Quotes**: Use single quotes (enforced by ESLint and Prettier)
+- **Indentation**: 2 spaces (enforced by ESLint and Prettier)
+- **Line endings**: Unix style (LF)
+- **Trailing commas**: ES5 style (enforced by Prettier)
+- **Print width**: 80 characters max
+
+## TypeScript Best Practices
+- **Strict mode**: Always enabled in [tsconfig.json](mdc:tsconfig.json)
+- **Module resolution**: Use ES modules with bundler resolution
+- **JSX**: Use React JSX transform (no need to import React in React 19)
+- **Type annotations**: Prefer explicit types for function parameters and return values
+- **Interfaces**: Use interfaces for object shapes and component props
+
+## React Component Standards
+- **Component naming**: Use PascalCase for components
+- **Props interface**: Define props interface above component
+- **Type annotations**: Use React.FC<Props> or explicit return types
+- **State management**: Use React hooks (useState, useEffect, useInput from Ink)
+
+## File Organization
+- **Source files**: Place all source code in [src/](mdc:src/) directory
+- **Entry points**: Use [src/index.tsx](mdc:src/index.tsx) for React app, [src/index.ts](mdc:src/index.ts) for CLI
+- **Component files**: One component per file with matching filename
+description:
+globs:
+alwaysApply: true
+---

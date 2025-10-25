@@ -1,0 +1,412 @@
+{
+    "mcpServers": {
+      "memory-tools": {
+        "command": "node",
+        "args": ["./node_modules/llm-mem/packages/mcp/dist/index.js", "--memoryStorePath=./docs/md", "--indexPath=./docs/db"],
+        "env": {
+            "ALLOWED_CATEGORIES": "DOC,CTX,ADR",
+            "FLEXSEARCH_LANGUAGE": "en"
+        }
+      },
+
+      "context7-tools": {
+        "command": "pnpx",
+        "args": [
+            "@upstash/context7-mcp"
+        ]
+      },
+      
+      "jira-tools": {
+        "command": "pnpx",
+        "args": [
+          "mcp-remote",
+          "https://mcp.atlassian.com/v1/sse"
+        ]
+      },
+
+      "github-tools": {
+        "command": "npx",
+        "args": [
+            "dotenvx",
+            "run",
+            "-f",
+            ".cursor/.env.github-mcp",
+            "--",
+            "pnpx",
+            "mcp-remote",
+            "https://api.githubcopilot.com/mcp/",
+            "--header",
+            "Authorization: Bearer ${GITHUB_PAT}",
+
+
+            "#ignore_actions_tools",
+            "########################################################",
+            "--ignore-tool", 
+            "cancel_workflow_run",
+
+            "--ignore-tool", 
+            "delete_workflow_run_logs",
+
+            "--ignore-tool", 
+            "download_workflow_run_artifact",
+
+            "--ignore-tool", 
+            "get_job_logs",
+
+            "--ignore-tool", 
+            "get_workflow_run",
+
+            "--ignore-tool", 
+            "get_workflow_run_logs",
+
+            "--ignore-tool", 
+            "get_workflow_run_usage",
+
+            "--ignore-tool", 
+            "list_workflow_jobs",
+
+            "--ignore-tool", 
+            "list_workflow_run_artifacts",
+
+            "--ignore-tool", 
+            "list_workflow_runs",
+
+            "--ignore-tool", 
+            "list_workflows",
+
+            "--ignore-tool", 
+            "rerun_failed_jobs",
+
+            "--ignore-tool", 
+            "rerun_workflow_run",
+
+            "--ignore-tool", 
+            "run_workflow",
+
+
+
+            "#ignore_code_security_tools",
+            "########################################################",
+            "--ignore-tool", 
+            "get_code_scanning_alert",
+
+            "--ignore-tool", 
+            "list_code_scanning_alerts",
+
+
+            "#ignore_context_tools",
+            "########################################################",
+            "--ignore-tool", 
+            "get_me",
+
+            "--ignore-tool", 
+            "get_team_members",
+
+            "--ignore-tool", 
+            "get_teams",
+
+
+
+            "#ignore_dependabot_tools",
+            "########################################################",
+            "--ignore-tool", 
+            "get_dependabot_alert",
+
+            "--ignore-tool", 
+            "list_dependabot_alerts",
+
+
+
+            "#ignore_discussion_tools",
+            "########################################################",
+            "--ignore-tool", 
+            "get_discussion",
+
+            "--ignore-tool", 
+            "get_discussion_comments",
+
+            "--ignore-tool", 
+            "list_discussion_categories",
+
+            "--ignore-tool", 
+            "list_discussions",
+
+
+
+            "#ignore_gist_tools",
+            "########################################################",
+            "--ignore-tool", 
+            "create_gist",
+
+            "--ignore-tool", 
+            "list_gists",
+
+            "--ignore-tool", 
+            "update_gist",
+
+
+
+            "#ignore_issues_tools",
+            "########################################################",
+            "#--ignore-tool", 
+            "#add_issue_comment",
+
+            "#--ignore-tool", 
+            "#add_sub_issue",
+
+            "--ignore-tool", 
+            "assign_copilot_to_issue",
+
+            "#--ignore-tool", 
+            "#create_issue",
+
+            "#--ignore-tool", 
+            "#get_issue",
+
+            "#--ignore-tool", 
+            "#get_issue_comments",
+
+            "#--ignore-tool", 
+            "#list_issue_types",
+
+            "#--ignore-tool", 
+            "#list_issues",
+
+            "#--ignore-tool", 
+            "#list_sub_issues",
+
+            "#--ignore-tool", 
+            "#remove_sub_issue",
+
+            "#--ignore-tool", 
+            "#reprioritize_sub_issue",
+
+            "#--ignore-tool", 
+            "#search_issues",
+
+            "#--ignore-tool", 
+            "#update_issue",
+
+
+
+            "#ignore_notifications_tools",
+            "########################################################",
+            "--ignore-tool", 
+            "dismiss_notification",
+
+            "--ignore-tool", 
+            "get_notification_details",
+
+            "--ignore-tool", 
+            "list_notifications",
+
+            "--ignore-tool", 
+            "manage_notification_subscription",
+
+            "--ignore-tool", 
+            "manage_repository_notification_subscription",
+
+            "--ignore-tool", 
+            "mark_all_notifications_read",
+
+
+
+            "#ignore_organizations_tools",
+            "########################################################",
+            "--ignore-tool", 
+            "search_orgs",
+
+
+
+            "#ignore_projects_tools",
+            "########################################################",
+            "--ignore-tool", 
+            "get_project",
+
+            "--ignore-tool", 
+            "list_project_fields",
+
+            "--ignore-tool", 
+            "list_projects",
+
+
+
+            "#ignore_pullrequests_tools",
+            "########################################################",
+            "--ignore-tool", 
+            "add_comment_to_pending_review",
+
+            "--ignore-tool", 
+            "create_and_submit_pull_request_review",
+
+            "--ignore-tool", 
+            "create_pending_pull_request_review",
+
+            "#--ignore-tool", 
+            "#create_pull_request",
+
+            "--ignore-tool", 
+            "delete_pending_pull_request_review",
+
+            "--ignore-tool", 
+            "get_pull_request",
+
+            "--ignore-tool", 
+            "get_pull_request_diff",
+
+            "--ignore-tool", 
+            "get_pull_request_files",
+
+            "#--ignore-tool", 
+            "#get_pull_request_review_comments",
+
+            "#--ignore-tool", 
+            "#get_pull_request_reviews",
+
+            "--ignore-tool", 
+            "get_pull_request_status",
+
+            "#--ignore-tool", 
+            "#list_pull_requests",
+
+            "--ignore-tool", 
+            "merge_pull_request",
+
+            "--ignore-tool", 
+            "request_copilot_review",
+
+            "#--ignore-tool", 
+            "#search_pull_requests",
+
+            "--ignore-tool", 
+            "submit_pending_pull_request_review",
+
+            "--ignore-tool", 
+            "update_pull_request",
+
+            "--ignore-tool", 
+            "update_pull_request_branch",
+
+
+
+            "#ignore_repositories_tools",
+            "########################################################",
+            "#--ignore-tool", 
+            "#create_branch",
+
+            "--ignore-tool", 
+            "create_or_update_file",
+
+            "--ignore-tool", 
+            "create_repository",
+
+            "--ignore-tool", 
+            "delete_file",
+
+            "--ignore-tool", 
+            "fork_repository",
+
+            "#--ignore-tool", 
+            "#get_commit",
+
+            "--ignore-tool", 
+            "get_file_contents",
+
+            "--ignore-tool", 
+            "get_latest_release",
+
+            "--ignore-tool", 
+            "get_release_by_tag",
+
+            "--ignore-tool", 
+            "get_tag",
+
+            "#--ignore-tool", 
+            "#list_branches",
+
+            "#--ignore-tool", 
+            "#list_commits",
+
+            "--ignore-tool", 
+            "list_releases",
+
+            "--ignore-tool", 
+            "list_starred_repositories",
+
+            "--ignore-tool", 
+            "list_tags",
+
+            "#--ignore-tool", 
+            "#push_files",
+
+            "--ignore-tool", 
+            "search_code",
+
+            "--ignore-tool", 
+            "search_repositories",
+
+            "--ignore-tool", 
+            "star_repository",
+
+            "--ignore-tool", 
+            "unstar_repository",
+
+
+
+            "#ignore_secret_protection_tools",
+            "########################################################",
+            "--ignore-tool", 
+            "get_secret_scanning_alert",
+
+            "--ignore-tool", 
+            "list_secret_scanning_alerts",
+
+
+
+            "#ignore_security_advisories_tools",
+            "########################################################",
+            "--ignore-tool", 
+            "get_global_security_advisory",
+
+            "--ignore-tool", 
+            "list_global_security_advisories",
+
+            "--ignore-tool", 
+            "list_org_repository_security_advisories",
+
+            "--ignore-tool", 
+            "list_repository_security_advisories",
+
+
+            
+            "#ignore_users_tools",
+            "########################################################",
+            "--ignore-tool", 
+            "search_users",
+
+
+
+            "#ignore_copilot_coding_agent_tools",
+            "########################################################",
+            "--ignore-tool", 
+            "create_pull_request_with_copilot",
+
+
+
+            "#ignore_copilot_spaces_tools",
+            "########################################################",
+            "--ignore-tool", 
+            "get_copilot_space",
+
+            "--ignore-tool", 
+            "list_copilot_spaces"
+
+        ]
+      },
+
+      "figma-tools": {
+        "type": "http",
+        "url": "http://127.0.0.1:3845/mcp"
+      }      
+  }
+}

@@ -1,0 +1,37 @@
+# Development Workflow
+
+## Development Environment Setup
+- **Package manager**: Use pnpm (version 10.15.0 as specified in [package.json](mdc:package.json))
+- **Node version**: Ensure compatibility with ES2022 target
+- **Editor configuration**: Use provided ESLint and Prettier configurations
+
+## Development Commands
+- **Start development**: `pnpm dev` - Runs with tsx for fast development
+- **Build project**: `pnpm build` - Compiles TypeScript to JavaScript
+- **Type checking**: `pnpm type-check` - Runs TypeScript compiler without emitting files
+- **Linting**: `pnpm lint` - Check code quality with ESLint
+- **Auto-fix**: `pnpm lint:fix` - Automatically fix ESLint issues
+- **Formatting**: `pnpm format` - Format code with Prettier
+- **Pre-commit check**: `pnpm test:full` - Comprehensive validation
+
+## Code Quality Tools
+- **ESLint**: Configured in [.eslintrc.json](mdc:.eslintrc.json) with TypeScript support
+- **Prettier**: Configured in [.prettierrc](mdc:.prettierrc) for consistent formatting
+- **TypeScript**: Strict mode enabled in [tsconfig.json](mdc:tsconfig.json)
+
+## Workflow Steps
+1. **Development**: Use `pnpm dev` for interactive development
+2. **Testing**: Run `pnpm test` to verify functionality
+3. **Quality checks**: Run `pnpm lint` and `pnpm format` before commits
+4. **Full validation**: Use `pnpm test:full` before major commits
+5. **Build**: Use `pnpm build` for production builds
+
+## Best Practices
+- **Frequent commits**: Commit working code regularly
+- **Pre-commit hooks**: Consider setting up git hooks for automatic quality checks
+- **Branch strategy**: Use feature branches for new development
+- **Code review**: Review code before merging to main branch
+description:
+globs:
+alwaysApply: true
+---

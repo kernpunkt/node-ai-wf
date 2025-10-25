@@ -1,0 +1,155 @@
+---
+alwaysApply: true
+description: Clean Code Standards and Best Practices for Code Quality
+---
+# Clean Code Standards and Best Practices
+
+## Core Clean Code Principles
+
+### 1. Meaningful Names
+- **Descriptive names**: Variables, functions, and classes should clearly express their purpose
+- **Avoid abbreviations**: Use full words instead of cryptic abbreviations
+- **Consistent naming**: Follow established naming conventions throughout the codebase
+- **Searchable names**: Use names that are easy to search for and find
+
+### 2. Functions and Methods
+- **Single responsibility**: Each function should do one thing well
+- **Small size**: Keep functions under 20 lines, ideally under 10
+- **Descriptive names**: Function names should be verbs that clearly describe the action
+- **Few parameters**: Limit parameters to 3 or fewer; use objects for complex data
+- **No side effects**: Functions should not modify external state unexpectedly
+
+### 3. Code Structure and Organization
+- **Logical grouping**: Group related functions and variables together
+- **Separation of concerns**: Keep business logic separate from presentation and data access
+- **Dependency direction**: Dependencies should point inward toward stable abstractions
+- **Clean architecture**: Follow the dependency rule - high-level modules should not depend on low-level modules
+
+### 4. Comments and Documentation
+- **Self-documenting code**: Write code that explains itself without comments
+- **Explain why, not what**: Comments should explain the reasoning behind complex logic
+- **Keep comments current**: Update comments when code changes
+- **Avoid redundant comments**: Don't state the obvious
+
+### 5. Error Handling
+- **Fail fast**: Detect and handle errors as early as possible
+- **Meaningful error messages**: Provide clear, actionable error information
+- **Consistent error handling**: Use uniform patterns across the codebase
+- **Don't ignore errors**: Always handle or explicitly ignore errors with clear reasoning
+
+### 6. Code Duplication
+- **DRY principle**: Don't Repeat Yourself - extract common functionality
+- **Single source of truth**: Each piece of knowledge should have one authoritative representation
+- **Refactor early**: Eliminate duplication as soon as it's identified
+- **Template patterns**: Use design patterns to avoid duplication
+
+## Specific Implementation Guidelines
+
+### Variable and Function Naming
+```typescript
+// Good
+const userAuthenticationToken = getStoredAuthToken();
+const isUserLoggedIn = checkUserAuthenticationStatus();
+
+// Bad
+const token = getToken();
+const flag = checkFlag();
+```
+
+### Function Design
+```typescript
+// Good - Single responsibility, clear name, few parameters
+function validateUserEmail(email: string): boolean {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+}
+
+// Bad - Multiple responsibilities, unclear name, many parameters
+function processUserData(user: User, validate: boolean, log: boolean, db: Database): void {
+  // ... complex logic doing multiple things
+}
+```
+
+### Error Handling
+```typescript
+// Good - Clear error handling with meaningful messages
+try {
+  const result = await riskyOperation();
+  return result;
+} catch (error) {
+  if (error instanceof NetworkError) {
+    throw new UserFriendlyError('Unable to connect to server. Please check your internet connection.');
+  }
+  throw error;
+}
+
+// Bad - Silent failure or generic error handling
+try {
+  const result = await riskyOperation();
+  return result;
+} catch (error) {
+  console.log('Error occurred');
+  return null;
+}
+```
+
+## Code Quality Metrics
+
+### Maintainability
+- **Cyclomatic complexity**: Keep functions simple (complexity < 10)
+- **Function length**: Prefer functions under 20 lines
+- **Parameter count**: Limit to 3 parameters maximum
+- **Nesting depth**: Avoid deep nesting (max 3-4 levels)
+
+### Readability
+- **Logical flow**: Arrange code in a logical, readable sequence
+- **Clear variable scope**: Minimize variable scope and lifetime
+
+### Testability
+- **Single responsibility**: Each function should be easily testable
+- **Dependency injection**: Inject dependencies to enable mocking
+- **Pure functions**: Prefer functions without side effects
+- **Clear interfaces**: Define clear contracts between components
+
+## Refactoring Guidelines
+
+### When to Refactor
+- **Code smells**: Address code smells as soon as they're identified
+- **Feature additions**: Refactor before adding new features to existing code
+- **Bug fixes**: Clean up code while fixing bugs
+- **Code reviews**: Use code reviews as opportunities to identify refactoring needs
+
+### Refactoring Principles
+- **Small steps**: Make small, incremental changes
+- **Tests first**: Ensure tests pass before and after refactoring
+- **Preserve behavior**: Refactoring should not change external behavior
+- **Commit frequently**: Commit refactoring changes separately from feature changes
+
+## Code Review Checklist
+
+### Function and Method Review
+- [ ] Does the function have a single, clear responsibility?
+- [ ] Is the function name descriptive and action-oriented?
+- [ ] Are there too many parameters?
+- [ ] Is the function too long or complex?
+- [ ] Does the function have side effects?
+
+### Variable and Data Review
+- [ ] Are variable names descriptive and meaningful?
+- [ ] Is the data structure appropriate for the use case?
+- [ ] Are there magic numbers or strings that should be constants?
+- [ ] Is the data flow clear and logical?
+
+### Error Handling Review
+- [ ] Are errors handled appropriately?
+- [ ] Are error messages user-friendly and actionable?
+- [ ] Is error handling consistent with the rest of the codebase?
+- [ ] Are there any silent failures?
+
+### Performance and Efficiency
+- [ ] Are there unnecessary loops or operations?
+- [ ] Is the algorithm appropriate for the data size?
+- [ ] Are there memory leaks or resource management issues?
+- [ ] Is the code optimized for readability over premature optimization?
+
+

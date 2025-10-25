@@ -1,0 +1,33 @@
+# Testing Standards with Vitest
+
+## Test Framework
+- **Framework**: Vitest (as configured in [package.json](mdc:package.json))
+- **Test runner**: `pnpm test` for running tests
+- **Full test suite**: `pnpm test:full` includes linting, type checking, and formatting
+
+## Test File Organization
+- **Location**: Place tests in [tests/](mdc:tests/) directory
+- **Naming**: Use `.test.ts` or `.spec.ts` suffix for test files
+- **Structure**: Mirror the src directory structure in tests
+
+## Testing Patterns
+- **Component testing**: Test React components with Ink components
+- **Hook testing**: Test custom hooks using React Testing Library patterns
+- **CLI testing**: Test command-line interface functionality
+- **Mocking**: Mock terminal input/output for Ink component testing
+
+## Test Commands
+- **Run tests**: `pnpm test`
+- **Watch mode**: `pnpm test --watch` (if available)
+- **Coverage**: Check [.coverage.json](mdc:.coverage.json) for coverage data
+- **Full validation**: `pnpm test:full` runs tests + linting + type checking + formatting
+
+## Best Practices
+- **Test isolation**: Each test should be independent
+- **Descriptive names**: Use clear test descriptions
+- **Coverage**: Aim for good test coverage of critical functionality
+- **Integration**: Test both individual components and full application flow
+description:
+globs:
+alwaysApply: true
+---
