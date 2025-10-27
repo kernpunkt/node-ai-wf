@@ -93,6 +93,61 @@ try {
 }
 ```
 
+## Conflict Resolution Guidelines
+
+### When Clean Code Principles Conflict
+
+When clean code principles conflict with each other, use the following decision framework:
+
+#### Readability vs Performance
+**Default: Prefer Readability**
+
+- **Rationale**: In most Node.js applications, code is read 10x more often than it's executed
+- **Exception**: Only optimize for performance when you have:
+  - Measured performance bottlenecks
+  - Specific performance requirements
+  - Evidence that the optimization provides meaningful improvement
+- **Process**: 
+  1. Write readable code first
+  2. Measure performance if needed
+  3. Optimize only the proven bottlenecks
+  4. Document why the optimization was necessary
+
+#### Simplicity vs Flexibility
+**Default: Prefer Simplicity**
+
+- Start with the simplest solution that meets current requirements
+- Add complexity only when you have concrete evidence of future needs
+- YAGNI (You Aren't Gonna Need It) principle applies
+
+#### DRY vs Clarity
+**Default: Prefer Clarity**
+
+- Don't extract common code if it makes the code harder to understand
+- Extract only when the abstraction is meaningful and improves comprehension
+- Sometimes a little duplication is better than a confusing abstraction
+
+### Decision Framework
+1. **Identify the conflict**: What principles are competing?
+2. **Consider the context**: What's the specific situation?
+3. **Apply the default**: Use the guidelines above
+4. **Document the decision**: Add a comment explaining why you chose this approach
+5. **Review later**: Revisit the decision if requirements change
+
+## Refactoring Guidelines
+
+### When to Refactor
+- **Code smells**: Address code smells as soon as they're identified
+- **Feature additions**: Refactor before adding new features to existing code
+- **Bug fixes**: Clean up code while fixing bugs
+- **Code reviews**: Use code reviews as opportunities to identify refactoring needs
+
+### Refactoring Principles
+- **Small steps**: Make small, incremental changes
+- **Tests first**: Ensure tests pass before and after refactoring
+- **Preserve behavior**: Refactoring should not change external behavior
+- **Commit frequently**: Commit refactoring changes separately from feature changes
+
 ## Code Quality Metrics
 
 ### Maintainability
@@ -110,20 +165,6 @@ try {
 - **Dependency injection**: Inject dependencies to enable mocking
 - **Pure functions**: Prefer functions without side effects
 - **Clear interfaces**: Define clear contracts between components
-
-## Refactoring Guidelines
-
-### When to Refactor
-- **Code smells**: Address code smells as soon as they're identified
-- **Feature additions**: Refactor before adding new features to existing code
-- **Bug fixes**: Clean up code while fixing bugs
-- **Code reviews**: Use code reviews as opportunities to identify refactoring needs
-
-### Refactoring Principles
-- **Small steps**: Make small, incremental changes
-- **Tests first**: Ensure tests pass before and after refactoring
-- **Preserve behavior**: Refactoring should not change external behavior
-- **Commit frequently**: Commit refactoring changes separately from feature changes
 
 ## Code Review Checklist
 

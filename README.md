@@ -1,15 +1,18 @@
-# Node Basic Template
+# Node AI Workflow Template
 
-A comprehensive Node.js project template designed for AI-first development workflows. This template provides a solid foundation with modern tooling, MCP (Model Context Protocol) integrations, and development best practices.
+A comprehensive Node.js project template designed for AI-first development with BDD/TDD workflow support. This template provides a solid foundation with modern tooling, MCP (Model Context Protocol) integrations, comprehensive testing frameworks (Vitest & Cucumber), and development best practices.
 
 ## 🚀 Features
 
 - **AI-First Development**: Optimized for AI-assisted coding with MCP integrations
+- **BDD/TDD Workflow**: Comprehensive Behavior-Driven and Test-Driven Development workflow
+- **BDD Support**: Cucumber integration with Gherkin syntax for acceptance tests
+- **TDD Support**: Vitest for unit testing with comprehensive coverage
 - **GitHub Integration**: Access and manipulate GitHub issues and pull requests
 - **Jira Integration**: Create and edit Jira stories and tasks
 - **Memory Tools**: AI memory and documentation management with `llm-mem`
 - **Documentation Coverage**: CLI tool for documentation coverage reports
-- **Modern Tooling**: TypeScript, ESLint, Prettier, Vitest, and more
+- **Modern Tooling**: TypeScript, ESLint, Prettier, Vitest, and Cucumber
 - **Clean Code Standards**: Built-in linting and formatting rules
 
 ## 📋 Requirements
@@ -53,9 +56,11 @@ A comprehensive Node.js project template designed for AI-first development workf
 | `pnpm dev` | Start development server with hot reload |
 | `pnpm build` | Build the project for production |
 | `pnpm start` | Start the production server |
-| `pnpm test` | Run test suite |
+| `pnpm test` | Run TDD test suite (Vitest) |
+| `pnpm test:bdd` | Run BDD test suite (Cucumber) |
+| `pnpm test:all` | Run both TDD and BDD tests |
 | `pnpm test:coverage` | Run tests with coverage report |
-| `pnpm test:full` | Run complete test suite (tests + linting + type checking) |
+| `pnpm test:full` | Run complete validation (tests + linting + type checking + formatting) |
 | `pnpm lint` | Run ESLint |
 | `pnpm lint:fix` | Fix ESLint issues automatically |
 | `pnpm format` | Format code with Prettier |
@@ -67,29 +72,42 @@ A comprehensive Node.js project template designed for AI-first development workf
 ## 🏗️ Project Structure
 
 ```
-node-basic/
+node-ai-wf/
 ├── .cursor/                 # Cursor IDE configuration
-│   ├── commands/           # Workflow commands
-│   ├── modes/              # Development modes
+│   ├── commands/           # BDD/TDD workflow commands
+│   ├── modes/              # Agent mode templates
 │   ├── rules/              # Code standards and rules
 │   └── mcp.json           # MCP server configuration
 ├── docs/                   # Documentation
-│   ├── db/                # Memory database
+│   ├── db/                # Memory database (FlexSearch)
 │   └── md/                # Markdown documentation
+├── features/               # BDD feature files (Cucumber)
+│   ├── *.feature          # Gherkin feature files
+│   └── README.md          # BDD documentation
 ├── src/                    # Source code
-│   └── examples/          # Example code and utilities
-│       ├── math.ts        # Math utility examples
-│       ├── string-utils.ts # String utility examples
-│       ├── logger.ts      # Logging utility examples
-│       └── README.md      # Examples documentation
+│   ├── examples/          # Example code and utilities
+│   │   ├── math.ts        # Math utility examples
+│   │   ├── string-utils.ts # String utility examples
+│   │   ├── logger.ts      # Logging utility examples
+│   │   └── README.md      # Examples documentation
+│   ├── index.ts           # Main entry point
+│   └── logger.ts          # Winston logging setup
 ├── tests/                  # Test suite
+│   ├── steps/             # BDD step definitions
+│   │   ├── *.steps.ts    # Cucumber step definitions
+│   │   └── README.md     # Step definition docs
 │   ├── setup.ts           # Test configuration
-│   ├── *.test.ts          # Test files
+│   ├── *.test.ts          # TDD unit tests
 │   └── README.md          # Testing documentation
+├── reports/                # Test reports
+│   ├── cucumber-report.html # BDD HTML report
+│   └── cucumber-report.json # BDD JSON report
+├── scripts/                # Utility scripts
 ├── package.json           # Project configuration
 ├── tsconfig.json          # TypeScript configuration
 ├── eslint.config.js       # ESLint configuration
-└── vitest.config.ts       # Test configuration
+├── vitest.config.ts       # Vitest configuration
+└── cucumber.config.cjs    # Cucumber configuration
 ```
 
 ## 📚 Template Examples
@@ -116,33 +134,59 @@ This template includes example code in the `/src/examples/` directory to demonst
 
 > **Note**: When you run `pnpm test:coverage`, the coverage report will show 0% initially since only example code exists. Once you add your own production code to `/src/` (outside the examples directory), coverage will measure your actual code.
 
+## 🧪 BDD/TDD Testing Approach
+
+This template implements a comprehensive testing strategy combining Behavior-Driven Development (BDD) and Test-Driven Development (TDD):
+
+### TDD (Test-Driven Development)
+- **Framework**: Vitest for fast, isolated unit tests
+- **Location**: `tests/*.test.ts` files
+- **Purpose**: Test individual functions and modules in isolation
+- **Pattern**: Red-Green-Refactor cycle
+- **Run**: `pnpm test`
+
+### BDD (Behavior-Driven Development)
+- **Framework**: Cucumber with TypeScript step definitions
+- **Location**: 
+  - Feature files: `features/*.feature` (Gherkin syntax)
+  - Step definitions: `tests/steps/*.steps.ts`
+- **Purpose**: Test user stories and acceptance criteria from business perspective
+- **Pattern**: Given-When-Then scenarios
+- **Run**: `pnpm test:bdd`
+
+### Combined Testing
+- **Run both**: `pnpm test:all` (TDD + BDD)
+- **Full validation**: `pnpm test:full` (tests + linting + type checking + formatting)
+- **Reports**: Generated in `reports/` directory
+
 ## 🤖 AI-First Development Workflow
 
-This template includes a comprehensive set of Cursor commands in the `.cursor/commands/` directory that guide you through an AI-first development process. These commands provide structured workflows for different phases of development.
+This template includes a comprehensive BDD/TDD development workflow optimized for LLM execution. The workflow combines Behavior-Driven Development (BDD) and Test-Driven Development (TDD) practices with memory-based knowledge management.
+
+### Workflow Overview
+
+The workflow follows a systematic approach from project planning to pull requests, focusing on one user story at a time and leveraging AI memory tools for context and documentation.
 
 ### Available Workflow Commands
 
 | Command | Purpose | Description |
 |---------|---------|-------------|
-| `wf0-define-goal` | Project Planning | Define project vision, requirements, and create comprehensive project goals |
-| `wf1-create-issue` | Issue Management | Create GitHub issues with clear "what" requirements (not "how") |
-| `wf1a-create-subissues` | Issue Breakdown | Break down complex issues into manageable sub-issues |
-| `wf1b-edit-issue` | Issue Editing | Edit existing GitHub issues to update requirements or scope |
-| `wf2-plan-implementation-and-create-branch` | Implementation Planning | Analyze issues, create implementation plan, and establish development branch |
-| `wf3-plan-unit-test-strategy` | Unit Test Planning | Define comprehensive unit test strategy and test cases |
-| `wf3.1-plan-integration-test-strategy` | Integration Test Planning | Define comprehensive integration test strategy and test cases |
-| `wf4-create-unit-tests` | Unit Test Implementation | Implement unit tests following TDD principles (red phase) |
-| `wf4.1-create-integration-tests` | Integration Test Implementation | Implement integration tests for component interactions |
-| `wf4a-continue-unit-tests` | Unit Test Completion | Continue or complete unit test implementation |
-| `wf4.1a-continue-integration-tests` | Integration Test Completion | Continue or complete integration test implementation |
-| `wf5-write-code` | Code Implementation | Implement features following TDD principles (green phase) |
-| `wf5a-continue-code` | Code Completion | Continue or complete code implementation |
-| `wf6-review-code` | Code Review | Review code quality, performance, and adherence to standards |
-| `wf6a-create-improvements-issues` | Improvement Tracking | Create GitHub issues for future improvements identified in code review |
-| `wf7-refactor-code` | Code Refactoring | Refactor code for better maintainability and performance |
-| `wf7a-continue-refactor` | Refactoring Completion | Continue or complete refactoring process |
-| `wf8-write-documentation` | Documentation | Create comprehensive documentation and capture insights as memories |
-| `wf9-commit-push-pullrequest` | Version Control | Commit changes, push branch, and create pull request that auto-closes issues |
+| `wf0-define-goal` | Project Planning | Define project vision, requirements, user personas, and MVP scope |
+| `wf1-create-agent-mode` | Agent Configuration | Create AI agent personality and technical expertise profile |
+| `wf2-create-user-stories` | Story Creation | Generate user stories from project goals and create them in Jira or GitHub |
+| `wf3-translate-to-bdd` | BDD Translation | Convert user stories into detailed BDD scenarios with Gherkin syntax |
+| `wf4a-plan-architecture` | Architecture Design | Design system architecture, interfaces, and data models |
+| `wf4b-plan-implementation` | Implementation Planning | Create detailed implementation plan with testing strategy |
+| `wf5-write-bdd-steps` | BDD Step Definitions | Implement reusable BDD step definitions in TypeScript |
+| `wf6-write-unit-tests` | Unit Test Implementation | Create comprehensive unit test suite with Vitest |
+| `wf7-write-implementation` | Code Implementation | Implement features following TDD principles (green phase) |
+| `wf7a-validate-implementation` | Implementation Validation | Validate implementation with BDD tests, unit tests, formatting, and linting |
+| `wf8-review-implementation` | Code Review | Comprehensive code review and quality assessment |
+| `wf8a-refactor` | Code Refactoring | Improve code quality based on review findings |
+| `wf9-security-review` | Security Assessment | Comprehensive security vulnerability assessment |
+| `wf9a-refactor-security` | Security Hardening | Address security issues identified in security review |
+| `wf10-write-documentation` | Documentation | Create comprehensive documentation for humans and LLMs |
+| `wf11-create-pull-request` | PR Creation | Package implementation for review and integration |
 
 ### How to Use Cursor Commands
 
@@ -151,39 +195,54 @@ Commands are used directly in the Cursor chat interface:
 1. **Open Cursor IDE** with your project
 2. **Start a chat** with the AI assistant
 3. **Type the command** using the "/" prefix followed by the filename:
-   - For initial commands: `wf0-define-goal`, `wf1-create-issue`
-   - For issue-specific commands (wf1a onwards): `wf1a-create-subissues github issue 123`
+   - For initial commands: `wf0-define-goal`, `wf1-create-agent-mode`
+   - For story-specific commands: `wf3-translate-to-bdd github issue 123`
 4. **Follow the Instructions**: Each command provides detailed step-by-step guidance
 5. **AI Integration**: Commands work seamlessly with MCP tools for GitHub, Jira, and memory management
 
 #### Command Usage Examples:
 - `/wf0-define-goal` - Start project planning
-- `/wf1-create-issue` - Create new GitHub issues
-- `/wf1b-edit-issue github issue 123` - Edit existing issue #123
-- `/wf2-plan-implementation-and-create-branch github issue 123` - Plan implementation for issue #123
-- `/wf3-plan-unit-test-strategy github issue 123` - Plan unit tests for issue #123
-- `/wf4-create-unit-tests github issue 123` - Implement unit tests for issue #123
-- `/wf5-write-code github issue 123` - Implement code for issue #123
-- `/wf6-review-code github issue 123` - Review code for issue #123
-- `/wf9-commit-push-pullrequest github issue 123` - Complete the workflow for issue #123
+- `/wf1-create-agent-mode` - Create custom AI agent mode
+- `/wf2-create-user-stories` - Create user stories in Jira or GitHub
+- `/wf3-translate-to-bdd github issue 123` - Translate story #123 to BDD scenarios
+- `/wf4a-plan-architecture github issue 123` - Plan architecture for story #123
+- `/wf4b-plan-implementation github issue 123` - Plan implementation for story #123
+- `/wf5-write-bdd-steps github issue 123` - Implement BDD step definitions for story #123
+- `/wf6-write-unit-tests github issue 123` - Write unit tests for story #123
+- `/wf7-write-implementation github issue 123` - Implement code for story #123
+- `/wf7a-validate-implementation github issue 123` - Validate implementation for story #123
+- `/wf8-review-implementation github issue 123` - Review code for story #123
+- `/wf9-security-review github issue 123` - Review security for story #123
+- `/wf10-write-documentation github issue 123` - Write documentation for story #123
+- `/wf11-create-pull-request github issue 123` - Create PR for story #123
 
 ### Workflow Philosophy
 
 The commands follow these principles:
-- **AI-First**: Designed to work optimally with AI assistants
-- **Test-Driven**: Tests are written before implementation
-- **Memory-Driven**: Leverages AI memory for context and learning
-- **Iterative**: Supports incremental development and refinement
-- **Quality-Focused**: Emphasizes code review and refactoring
+- **One user story at a time**: Focus on completing one user story before moving to the next
+- **BDD-first approach**: Start with user stories, translate to BDD scenarios, then implement
+- **Memory-driven**: Use MCP memory tools for architectural decisions, documentation, and context
+- **Quality gates**: Built-in review and validation steps ensure code quality
+- **LLM-optimized**: Each step designed for effective LLM execution
 
 ### Getting Started with Workflows
 
-1. **Start with `wf0-define-goal`** to establish your project vision
-2. **Use `wf1-create-issue`** to break down work into manageable tasks
-3. **Follow the sequence** through planning, testing, implementation, and review
-4. **Use continuation commands** (`wf4a`, `wf4.1a`, `wf5a`, `wf7a`) when work spans multiple sessions
-5. **Plan both unit and integration tests** using `wf3-plan-unit-test-strategy` and `wf3.1-plan-integration-test-strategy`
-6. **Track improvements** using `wf6a-create-improvements-issues` after code review
+1. **Start with `wf0-define-goal`** to establish your project vision and user personas
+2. **Use `wf1-create-agent-mode`** to create a specialized AI agent for your project
+3. **Run `wf2-create-user-stories`** to generate and create user stories in Jira or GitHub
+4. **Select a story** and run `wf3-translate-to-bdd` to convert it to BDD scenarios
+5. **Follow the sequence** through architecture, implementation, testing, and review
+6. **Complete the cycle** with `wf7a-validate-implementation`, `wf8-review-implementation`, and `wf11-create-pull-request`
+
+### Memory Management
+
+The workflow leverages MCP memory tools to store and retrieve:
+- **DEF**: Project definitions, goals, user personas, and MVP scope
+- **ADR**: Architecture Decision Records with governance and rationale
+- **ARC**: Story-specific architectural decisions and component design
+- **IMP**: Implementation plans, testing strategies, and development approaches
+- **DOC**: Code documentation, business logic, edge cases, and API guides
+- **SEC**: Security assessments, vulnerability analysis, and best practices
 
 ## 🎭 Custom Agent Modes
 
@@ -195,14 +254,14 @@ This template includes pre-configured agent modes in the `.cursor/modes/` direct
 
 | Mode | Purpose | Description |
 |------|---------|-------------|
-| `team-member` | Software Architecture | Specialized agent for architectural decisions, TypeScript development, and code design |
+| `prompt-engineer` | Prompt Engineering | World-class prompt engineering expertise with cutting-edge techniques and methodologies |
 
 ### How to Use Agent Modes
 
 1. **Open Cursor IDE** with your project
 2. **Access Agent Settings**: Go to Settings → Agents
 3. **Create Custom Agent**: Click "Create Agent" or "New Agent"
-4. **Copy Agent Prompt**: Copy the content from `.cursor/modes/team-member.md`
+4. **Copy Agent Prompt**: Copy the content from `.cursor/modes/prompt-engineer.md`
 5. **Paste into Agent**: Paste the content into the agent's system prompt field
 6. **Save and Name**: Give your agent a descriptive name and save
 7. **Select Agent**: Choose your custom agent from the agent selector in chat
@@ -296,13 +355,15 @@ This project is licensed under the ISC License - see the [LICENSE](LICENSE) file
 ### Common Issues
 
 - **MCP not working**: Ensure your `.env.github-mcp` file is properly configured
-- **Build failures**: Run `pnpm install` and `pnpm run build` to ensure all dependencies are installed run `pnpm approve-builds` if you see a warning about it
+- **Build failures**: Run `pnpm install` and `pnpm run build` to ensure all dependencies are installed
+- **Test failures**: Run `pnpm test:all` to run both TDD and BDD tests
 - **Type errors**: Run `pnpm type-check` to identify TypeScript issues
 - **Linting errors**: Run `pnpm lint:fix` to automatically fix common issues
+- **BDD test issues**: Check the `features/` directory for Gherkin syntax errors
 
 ### Getting Help
 
-- Check the [Issues](https://github.com/your-org/node-basic/issues) page
+- Check the [Issues](https://github.com/kernpunkt/node-ai-wf/issues) page
 - Review the documentation in the `docs/` directory
 - Ensure you're using the correct Node.js and pnpm versions
-- ask Olli Blum
+- Contact Olli Blum for assistance

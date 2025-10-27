@@ -15,7 +15,7 @@
       "src/**/*.js",
       "othersrc/**/*.ts"
     ],
-    "categories": ["DOC", "ADR", "CTX"],
+    "categories": ["ARC", "ADR", "IMP", "DOC", "SEC"],
     "memoryStorePath": "./docs/md",
     "indexPath": "./docs/db",
     "rootDir": "./",

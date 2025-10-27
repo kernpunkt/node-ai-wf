@@ -1,0 +1,291 @@
+[
+  {
+    "description": "  As a developer\n  I want to use logging functionality in my application\n  So that I can track application behavior and debug issues",
+    "elements": [
+      {
+        "description": "",
+        "id": "application-logging-behavior;log-application-startup",
+        "keyword": "Scenario",
+        "line": 9,
+        "name": "Log application startup",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 7,
+            "name": "the application is running",
+            "match": {
+              "location": "tests/steps/application-logging.steps.ts:8"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2312207
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 10,
+            "name": "the application starts",
+            "match": {
+              "location": "tests/steps/application-logging.steps.ts:12"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2394125
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 11,
+            "name": "the application should log startup information",
+            "match": {
+              "location": "tests/steps/application-logging.steps.ts:17"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 576415
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 12,
+            "name": "the log level should be appropriate for startup",
+            "match": {
+              "location": "tests/steps/application-logging.steps.ts:22"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 529832
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "application-logging-behavior;log-user-authentication",
+        "keyword": "Scenario",
+        "line": 14,
+        "name": "Log user authentication",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 7,
+            "name": "the application is running",
+            "match": {
+              "location": "tests/steps/application-logging.steps.ts:8"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 40792
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 15,
+            "name": "a user attempts to log in",
+            "match": {
+              "location": "tests/steps/application-logging.steps.ts:27"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 286499
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 16,
+            "name": "the authentication is successful",
+            "match": {
+              "location": "tests/steps/application-logging.steps.ts:32"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 283709
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 17,
+            "name": "the application should log the successful authentication",
+            "match": {
+              "location": "tests/steps/application-logging.steps.ts:37"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 486125
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 18,
+            "name": "the log should include user information",
+            "match": {
+              "location": "tests/steps/application-logging.steps.ts:42"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 380667
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "application-logging-behavior;log-error-conditions",
+        "keyword": "Scenario",
+        "line": 20,
+        "name": "Log error conditions",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 7,
+            "name": "the application is running",
+            "match": {
+              "location": "tests/steps/application-logging.steps.ts:8"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 54042
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 21,
+            "name": "an error occurs in the application",
+            "match": {
+              "location": "tests/steps/application-logging.steps.ts:48"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 373582
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 22,
+            "name": "the application should log the error",
+            "match": {
+              "location": "tests/steps/application-logging.steps.ts:53"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 334458
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 23,
+            "name": "the log should include error details",
+            "match": {
+              "location": "tests/steps/application-logging.steps.ts:58"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 478457
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 24,
+            "name": "the log level should indicate an error",
+            "match": {
+              "location": "tests/steps/application-logging.steps.ts:64"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 269542
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "application-logging-behavior;log-performance-warnings",
+        "keyword": "Scenario",
+        "line": 26,
+        "name": "Log performance warnings",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 7,
+            "name": "the application is running",
+            "match": {
+              "location": "tests/steps/application-logging.steps.ts:8"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 17333
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 27,
+            "name": "system performance degrades",
+            "match": {
+              "location": "tests/steps/application-logging.steps.ts:69"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 280499
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 28,
+            "name": "the application should log performance warnings",
+            "match": {
+              "location": "tests/steps/application-logging.steps.ts:74"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 285584
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 29,
+            "name": "the log should include performance metrics",
+            "match": {
+              "location": "tests/steps/application-logging.steps.ts:79"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 279249
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      }
+    ],
+    "id": "application-logging-behavior",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "Application logging behavior",
+    "tags": [],
+    "uri": "features/application-logging.feature"
+  }
+]

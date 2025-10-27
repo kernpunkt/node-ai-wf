@@ -1,33 +1,92 @@
-# Testing Standards with Vitest
+---
+alwaysApply: true
+description: Comprehensive testing standards for TDD with Vitest and BDD with Cucumber, including mocking guidelines and best practices
+---
+# Testing Standards with Vitest and Cucumber
 
-## Test Framework
-- **Framework**: Vitest (as configured in [package.json](mdc:package.json))
+## Test Frameworks
+- **TDD Framework**: Vitest (as configured in [package.json](mdc:package.json))
+- **BDD Framework**: Cucumber with Gherkin syntax
 - **Test runner**: `pnpm test` for running tests
 - **Full test suite**: `pnpm test:full` includes linting, type checking, and formatting
 
 ## Test File Organization
-- **Location**: Place tests in [tests/](mdc:tests/) directory
-- **Naming**: Use `.test.ts` or `.spec.ts` suffix for test files
+- **TDD Tests**: Place Vitest tests in [tests/](mdc:tests/) directory
+- **BDD Tests**: Place Cucumber feature files in `features/` directory
+- **Step Definitions**: Place step definitions in `tests/steps/` directory
+- **Configuration**: Cucumber configuration in `cucumber.config.cjs`
+- **Reports**: Test reports generated in `reports/` directory
+- **Naming**: 
+  - Vitest: Use `.test.ts` or `.spec.ts` suffix
+  - Cucumber: Use `.feature` suffix for Gherkin files
+  - Step definitions: Use `.ts` suffix (TypeScript with tsx/esm)
 - **Structure**: Mirror the src directory structure in tests
 
 ## Testing Patterns
-- **Component testing**: Test React components with Ink components
-- **Hook testing**: Test custom hooks using React Testing Library patterns
-- **CLI testing**: Test command-line interface functionality
-- **Mocking**: Mock terminal input/output for Ink component testing
 
-## Test Commands
-- **Run tests**: `pnpm test`
-- **Watch mode**: `pnpm test --watch` (if available)
-- **Coverage**: Check [.coverage.json](mdc:.coverage.json) for coverage data
-- **Full validation**: `pnpm test:full` runs tests + linting + type checking + formatting
+### TDD with Vitest
+- **Unit testing**: Test individual functions and modules in isolation
+- **Integration testing**: Test module interactions and data flow
+- **CLI testing**: Test command-line interface functionality
+- **Mocking**: Mock external dependencies and APIs using Vitest's mocking capabilities
+
+### BDD with Cucumber
+- **Feature testing**: Write tests in Gherkin syntax for business requirements
+- **Behavior-driven scenarios**: Test user stories and acceptance criteria
+- **Step definitions**: Implement reusable step definitions for common actions
+- **Scenario outlines**: Use data tables and examples for parameterized testing
+- **Real implementations**: Test actual business logic, avoid over-mocking
+- **Business focus**: Test behavior from user perspective, not technical implementation
+
+## Mocking Guidelines
+
+### When to Mock vs. Use Real Implementations
+
+#### ✅ **Use Real Implementations (Preferred for BDD)**
+- **Business logic**: Test actual application behavior
+- **Core functionality**: Test real implementations of key features
+- **Integration points**: Test how components work together
+- **User workflows**: Test complete user journeys
+
+#### ⚠️ **Mock Only When Necessary**
+- **External APIs**: Mock third-party services and APIs
+- **File system**: Mock file operations for test isolation
+- **Network calls**: Mock HTTP requests and responses
+- **Time-dependent code**: Mock timers and dates for deterministic tests
+- **Expensive operations**: Mock database queries or heavy computations
+
+#### ❌ **Avoid Over-Mocking**
+- **Don't mock the system under test**: Test real business logic
+- **Don't mock core functionality**: Test actual implementations
+- **Don't mock for convenience**: Only mock when there's a real need
+- **Don't mock in BDD**: BDD should test real user behavior
+
+### Anti-Patterns to Avoid
+- **Mocking the logger you want to test**: Use real logger implementations
+- **Mocking business logic**: Test actual application behavior
+- **Mocking for test speed**: Optimize tests without sacrificing realism
+- **Mocking everything**: Balance between isolation and realistic testing
 
 ## Best Practices
+
+### TDD Best Practices
 - **Test isolation**: Each test should be independent
 - **Descriptive names**: Use clear test descriptions
 - **Coverage**: Aim for good test coverage of critical functionality
 - **Integration**: Test both individual components and full application flow
-description:
-globs:
-alwaysApply: true
----
+
+### BDD Best Practices
+- **Given-When-Then structure**: Use clear, readable Gherkin syntax
+- **Business language**: Write scenarios in domain language, not technical terms
+- **Reusable steps**: Create step definitions that can be shared across features
+- **Data-driven testing**: Use scenario outlines and data tables for comprehensive coverage
+- **Feature organization**: Group related scenarios in logical feature files
+
+## Test Commands
+- **Run TDD tests**: `pnpm test` (Vitest)
+- **Run BDD tests**: `pnpm test:bdd` (Cucumber)
+- **Run all tests**: `pnpm test:all` (both TDD and BDD)
+- **Test coverage**: `pnpm test:coverage` (Vitest with coverage)
+- **Watch mode**: `pnpm test --watch` (if available)
+- **Coverage**: Check [.coverage.json](mdc:.coverage.json) for coverage data
+- **Full validation**: `pnpm test:full` runs tests + linting + type checking + formatting

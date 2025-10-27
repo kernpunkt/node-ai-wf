@@ -1,0 +1,50 @@
+---
+alwaysApply: true
+description: Development environment configuration and AI code generation guidelines
+---
+# Development Environment & LLM Code Generation
+
+## Development Environment Setup
+- **Package manager**: Use pnpm (version specified in [package.json](mdc:package.json))
+- **Node version**: See engines requirement in [package.json](mdc:package.json)
+- **TypeScript target**: ES2022 (configured in [tsconfig.json](mdc:tsconfig.json))
+- **Editor configuration**: Use provided ESLint and Prettier configurations
+
+## Development Commands
+- **Start development**: `pnpm dev` - Runs with tsx for fast development
+- **Build project**: `pnpm build` - Compiles TypeScript to JavaScript
+- **Start production**: `pnpm start` - Runs compiled JavaScript
+- **Type checking**: `pnpm type-check` - Runs TypeScript compiler without emitting files
+- **Testing**: `pnpm test` - Run TDD tests with Vitest
+- **BDD Testing**: `pnpm test:bdd` - Run BDD tests with Cucumber
+- **All Tests**: `pnpm test:all` - Run both TDD and BDD tests
+- **Test coverage**: `pnpm test:coverage` - Run tests with coverage report
+- **Linting**: `pnpm lint` - Check code quality with ESLint
+- **Auto-fix**: `pnpm lint:fix` - Automatically fix ESLint issues
+- **Formatting**: `pnpm format` - Format code with Prettier
+- **Pre-commit check**: `pnpm test:full` - Comprehensive validation (tests + lint + type-check + format)
+
+## Code Quality Tools
+- **ESLint**: Configured in [eslint.config.js](mdc:eslint.config.js) with TypeScript support and clean code rules
+- **Prettier**: Configured in [.prettierrc](mdc:.prettierrc) for consistent formatting
+- **TypeScript**: Strict mode enabled in [tsconfig.json](mdc:tsconfig.json)
+- **Vitest**: TDD testing framework configured for unit testing
+- **Cucumber**: BDD testing framework with Gherkin syntax
+
+## Code Generation Guidelines
+- **File structure**: Follow existing patterns in [src/](mdc:src/) directory
+- **Import patterns**: Use ES modules with explicit imports
+- **Type safety**: Always provide explicit types for function parameters and returns
+- **Error handling**: Implement proper error handling following clean code standards
+- **Testing**: Write tests for new functionality in [tests/](mdc:tests/) directory
+- **BDD Testing**: Write feature files in `features/` directory and step definitions in `tests/steps/` (TypeScript)
+
+## Development Commands for Code Generation
+- **Validate generated code**: `pnpm test:full` - Comprehensive validation
+- **Fix linting issues**: `pnpm lint:fix` - Auto-fix ESLint issues
+- **Format code**: `pnpm format` - Apply Prettier formatting
+- **Type checking**: `pnpm type-check` - Verify TypeScript types
+- **Run tests**: `pnpm test` - Execute TDD test suite
+- **Run BDD tests**: `pnpm test:bdd` - Execute BDD test suite
+- **Run all tests**: `pnpm test:all` - Execute both TDD and BDD tests
+
