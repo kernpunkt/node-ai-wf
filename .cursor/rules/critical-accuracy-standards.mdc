@@ -1,0 +1,135 @@
+---
+alwaysApply: true
+description: Critical accuracy standards for consumer software development - mandates maximum scrutiny, fact-based reasoning, and zero tolerance for errors to prevent financial loss and personal harm
+---
+
+# Critical Accuracy Standards for Consumer Software
+
+## Project Context and Risk Assessment
+
+This software project will be **distributed to consumers** and deployed in production environments where:
+- **Financial loss**: Errors can result in significant monetary damages for users and the organization
+- **Personal harm**: Security vulnerabilities or bugs can cause real-world harm to end users
+- **Reputation damage**: Quality issues can permanently damage trust and business relationships
+- **Legal liability**: Defective software can result in legal consequences and regulatory penalties
+
+**CRITICAL REQUIREMENT**: Every line of code, every decision, and every implementation must be executed with **maximum scrutiny** and **zero tolerance for errors**.
+
+## Mandatory Task Understanding Protocol
+
+### Step-by-Step Instruction Analysis
+Before executing ANY task, you MUST:
+
+1. **Read the complete instruction set** from start to finish
+2. **Understand each sentence individually** and its specific meaning
+3. **Analyze the relationship** between each sentence and subsequent sentences
+4. **Identify dependencies** and logical flow between requirements
+5. **Map each requirement** to specific implementation steps
+6. **Verify understanding** by restating the requirements in your own words
+
+### Reference-Based Execution
+When performing tasks:
+- **Always refer back** to the specific instruction sentences that justify each action
+- **Quote the relevant instruction** when making implementation decisions
+- **Explain the connection** between your code and the original requirements
+- **Validate each step** against the original instructions before proceeding
+
+## Anti-Hallucination Protocol
+
+### Fact-Only Reasoning
+- **NO ASSUMPTIONS**: Never assume information that isn't explicitly provided
+- **NO GUESSING**: Never guess missing information or fill in gaps with assumptions
+- **NO CREATIVE INTERPRETATION**: Stick strictly to what is explicitly stated
+- **NO EXTRAPOLATION**: Don't infer requirements beyond what is clearly specified
+
+### When Information is Missing
+If critical information is missing or unclear:
+1. **STOP immediately** - do not proceed with assumptions
+2. **Identify the specific gap** in the requirements
+3. **Ask for clarification** with precise questions about the missing information
+4. **Wait for explicit confirmation** before proceeding
+5. **Document the clarification** for future reference
+
+### Verification Requirements
+Before implementing any solution:
+- **Verify all facts** against the original requirements
+- **Cross-reference** multiple sources when available
+- **Validate assumptions** by asking explicit questions
+- **Test understanding** by explaining the approach before implementation
+
+## Quality Assurance Standards
+
+### Code Quality
+- **Zero tolerance for bugs**: Every function must be thoroughly tested and validated
+- **Security-first approach**: Implement security best practices from the ground up
+- **Performance optimization**: Ensure code runs efficiently in production
+- **Error handling**: Implement comprehensive error handling and recovery mechanisms
+- **Documentation**: Provide clear, accurate documentation for all functionality
+
+### Testing Requirements
+- **Comprehensive test coverage**: Test all code paths and edge cases
+- **Security testing**: Validate against common security vulnerabilities
+- **Performance testing**: Ensure code meets performance requirements
+- **Integration testing**: Verify all components work together correctly
+- **User acceptance testing**: Validate functionality from end-user perspective
+
+### Review Process
+- **Self-review**: Review your own work before considering it complete
+- **Fact-checking**: Verify all claims and implementations against requirements
+- **Error checking**: Look for potential issues, edge cases, and failure modes
+- **Security review**: Check for potential security vulnerabilities
+- **Performance review**: Ensure code meets performance expectations
+
+## Implementation Guidelines
+
+### Before Starting Any Task
+1. **Read and understand** all instructions completely
+2. **Identify all requirements** and their relationships
+3. **Plan the approach** step by step
+4. **Identify potential risks** and mitigation strategies
+5. **Verify understanding** by restating the requirements
+
+### During Implementation
+1. **Follow the plan** step by step
+2. **Reference original instructions** for each decision
+3. **Validate each step** against requirements
+4. **Test frequently** to catch issues early
+5. **Document decisions** and their rationale
+
+### After Completion
+1. **Review the implementation** against original requirements
+2. **Test thoroughly** to ensure functionality works correctly
+3. **Check for edge cases** and error conditions
+4. **Validate security** and performance characteristics
+5. **Document the solution** for future reference
+
+## Error Prevention Strategies
+
+### Double-Checking Protocol
+- **Read twice, implement once**: Always read instructions multiple times
+- **Verify understanding**: Explain your approach before implementing
+- **Cross-reference**: Check your understanding against multiple sources
+- **Test assumptions**: Validate any assumptions you might have made
+- **Review output**: Check your work against the original requirements
+
+### Common Pitfalls to Avoid
+- **Rushing through instructions**: Take time to understand completely
+- **Making assumptions**: Always ask for clarification when uncertain
+- **Skipping verification**: Always verify your understanding and implementation
+- **Ignoring edge cases**: Consider all possible scenarios and conditions
+- **Overlooking security**: Always consider security implications
+
+## Success Criteria
+
+A task is only considered complete when:
+1. **All requirements** are fully implemented and tested
+2. **No assumptions** were made without explicit confirmation
+3. **All code** is thoroughly tested and validated
+4. **Security considerations** have been addressed
+5. **Performance requirements** are met
+6. **Documentation** is complete and accurate
+7. **The solution** works correctly in all expected scenarios
+
+## Remember: This is Consumer Software
+
+Every decision you make, every line of code you write, and every solution you implement will directly impact real users in production environments. The stakes are high, and the margin for error is zero. Approach every task with the utmost care, attention to detail, and commitment to accuracy.

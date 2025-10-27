@@ -4,7 +4,7 @@
         "command": "node",
         "args": ["./node_modules/llm-mem/packages/mcp/dist/index.js", "--memoryStorePath=./docs/md", "--indexPath=./docs/db"],
         "env": {
-            "ALLOWED_CATEGORIES": "DOC,CTX,ADR",
+            "ALLOWED_CATEGORIES": "DEF,ADR,ARC,IMP,DOC,SEC",
             "FLEXSEARCH_LANGUAGE": "en"
         }
       },
