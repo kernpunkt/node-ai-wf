@@ -52,6 +52,19 @@ Comprehensive security assessment.
    - Tag SEC memories with story ID and status:active
    - Document specific security issues and recommendations
    - Store security patterns for future reference
+   - **⚠️ CRITICAL: Optimize for token efficiency**
+     - Use bullet lists, not paragraphs
+     - Focus on facts: vulnerabilities, locations, fixes
+     - Use abbreviations: OWASP, XSS, SQLi, CSRF, JWT, etc.
+     - Structure as checklists with severity ratings
+     - Avoid explaining what can be inferred
+     - Example format:
+       ```markdown
+       **Vulns:** 1.HIGH-ln45: SQL injection in user query 2.MED-ln82: missing input sanitization 3.LOW-ln120: info disclosure in errors
+       **Recommendations:** 1.use parameterized queries 2.sanitize inputs 3.generic error msgs
+       **Status:** Critical(0), High(1), Medium(1), Low(1)
+       **Files:** src/user-service.ts:45,82,120
+       ```
 
 ## Output
 - SEC memories with security findings and patterns

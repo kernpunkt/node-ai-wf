@@ -42,6 +42,21 @@ Create detailed implementation plan with testing strategy.
    - Tag IMP memories with story ID and status:active
    - Document testing strategies and approaches
    - Store implementation patterns and best practices
+   - **⚠️ CRITICAL: Optimize for token efficiency**
+     - Use concise bullet points instead of verbose prose
+     - Eliminate filler words and explanations
+     - Focus on facts: tasks, order, deps, test types only
+     - Use abbreviations: TDD, BDD, E2E, CRUD, API, etc.
+     - Structure tasks as numbered lists with minimal description
+     - Avoid repeating information from titles in content
+     - Example format:
+       ```markdown
+       **Order:** 1.Auth 2.Users 3.Posts
+       **Tasks:** 1.AuthService 2.UserRepo 3.AuthTests 4.IntegrationTests
+       **Tests:** Unit(90%), Integration(70%), E2E(50%)
+       **Mocks:** Database, EmailService; Real: AuthService, UserService
+       **Risks:** Race conditions in auth → optimistic locking
+       ```
 
 ## Output
 - IMP memories with implementation plans and strategies

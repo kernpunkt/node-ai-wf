@@ -35,6 +35,17 @@ Design system architecture and create architectural decisions.
    - Tag ADRs with story ID and status:active
    - If new decisions supersede existing ADRs, edit old ADR to mark as superseded
    - Replace status:active tag of superseded ADRs with status:superseded
+   - **⚠️ CRITICAL: Optimize for token efficiency**
+     - Use concise decision statements
+     - Format: **Decision:** [what], **Rationale:** [why], **Trade-offs:** [pros/cons]
+     - Avoid verbose context, focus on decision and impact only
+     - Example:
+       ```markdown
+       **Decision:** Use Redis for session store
+       **Rationale:** Low latency, high concurrency, auto-expiry
+       **Trade-offs:** +fast -additional infra -persistence concerns
+       **Impact:** Session mgmt → Redis, logout = Redis delete
+       ```
 
 6. **Create Detailed Architectural Design**
    - **System interfaces and contracts:**
@@ -56,6 +67,20 @@ Design system architecture and create architectural decisions.
    - Create ARC memories with detailed architectural design
    - Tag all ARC memories with story ID, component type, and status:active
    - Use Context7 MCP for package documentation research when needed
+   - **⚠️ CRITICAL: Optimize for token efficiency**
+     - Use concise bullet points instead of verbose prose
+     - Eliminate filler words, introductions, and explanations
+     - Focus on facts: interfaces, contracts, types, dependencies only
+     - Use abbreviations: API, ERD, URI, HTTP, CRUD, etc.
+     - Structure data as key-value pairs where possible
+     - Avoid repeating information from titles in content
+     - Example format:
+       ```markdown
+       **Contracts:** GET /api/users → User[], POST /api/users → User
+       **Types:** User{id:string,name:string,email:string}
+       **Deps:** AuthService → UserService → UserRepo
+       **Diagrams:** [mermaid diagram code]
+       ```
 
 ## Output
 - ADR memories with architectural decisions

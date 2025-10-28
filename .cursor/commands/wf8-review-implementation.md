@@ -50,6 +50,19 @@ Comprehensive code review and quality assessment.
    - Create DOC memories with review findings and patterns
    - Tag DOC memories with story ID, status:active, topic:review
    - Document specific issues and recommendations
+   - **⚠️ CRITICAL: Optimize for token efficiency**
+     - Use bullet lists, not paragraphs
+     - Focus on facts: issues, locations, recommendations
+     - Use abbreviations: TODO, FIXME, API, CRUD, etc.
+     - Structure as checklists with file:line references
+     - Avoid explaining what can be inferred
+     - Example format:
+       ```markdown
+       **Issues:** 1.ln45: missing null check 2.ln82: duplicate logic 3.ln120: no error handling
+       **Recommendations:** 1.extract validator 2.use try/catch 3.add type guards
+       **Quality:** CleanCode(8/10), Tests(9/10), Arch(10/10)
+       **Files:** src/user-service.ts, tests/user-service.test.ts
+       ```
 
 ## Output
 - DOC memories with review findings
