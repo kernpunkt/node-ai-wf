@@ -44,5 +44,4 @@ Convert a single user story into detailed BDD scenarios.
 - BDD specifications complete and testable
 
 ## MCP Tools Required
-- Memory Tools: For storing BDD context and patterns
 - Jira MCP OR GitHub MCP: For retrieving story/issue details
