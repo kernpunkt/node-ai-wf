@@ -8,9 +8,11 @@ Design system architecture and create architectural decisions.
 
 ## Process
 1. **Analyze Requirements**
-   - Find feature files with story ID prefix
-   - Analyze BDD scenarios to understand requirements
+   - Use MCP tools to retrieve the specific story/issue
+   - Analyze story requirements and acceptance criteria, mind story boundaries
    - Review story context and acceptance criteria
+   - Find feature files with story ID prefix
+   - Analyze BDD scenarios to better understand requirements
 
 2. **Quality Gate: BDD Validation**
    - Validate BDD scenarios are complete and testable
