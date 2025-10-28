@@ -10,7 +10,7 @@ Convert a single user story into detailed BDD scenarios.
 ## Process
 1. **Retrieve Story Details**
    - Use MCP tools to retrieve the specific story/issue
-   - Analyze story requirements and acceptance criteria
+   - Analyze story requirements and acceptance criteria, mind story boundaries
    - Review story context and dependencies
 
 2. **Quality Gate: Story Validation**

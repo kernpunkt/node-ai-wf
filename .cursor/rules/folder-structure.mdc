@@ -1,0 +1,25 @@
+---
+alwaysApply: true
+---
+
+# Project Folder Structure
+
+## Core Directories
+- **`src/`** - Source code (TypeScript modules, examples)
+- **`tests/`** - Test files (Vitest TDD tests, Cucumber step definitions)
+- **`features/`** - BDD feature files (Gherkin scenarios)
+- **`dist/`** - Compiled JavaScript output
+- **`docs/`** - Documentation and database files not accessible by llms
+- **`reports/`** - Test reports and coverage data
+
+## Configuration Files
+- **Root level** - `package.json`, `tsconfig.json`, `eslint.config.js`, `vitest.config.ts`
+- **`.cursor/`** - Cursor IDE rules, commands, and modes
+- **`cucumber.config.cjs`** - Cucumber BDD configuration
+
+## Key Files
+- **`src/index.ts`** - Main entry point
+- **`src/examples/`** - Example implementations
+- **`tests/steps/`** - Cucumber step definitions
+- **`features/*.feature`** - BDD scenarios in Gherkin syntax
+- **`tests/*.test.ts`** - Vitest unit tests

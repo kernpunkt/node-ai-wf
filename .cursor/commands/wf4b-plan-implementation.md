@@ -8,9 +8,12 @@ Create detailed implementation plan with testing strategy.
 
 ## Process
 1. **Gather Context**
+   - Use MCP tools to retrieve the specific story/issue
+   - Analyze story requirements and acceptance criteria, mind story boundaries
+   - Review story context and dependencies
    - Find feature files with story ID prefix
-   - Search ARC memories: story_id:STORY-123, status:active
-   - Analyze BDD scenarios and architecture to understand requirements
+   - Search ARC memories: story_id:STORY-123, status:active and general ADR memories to understand architectural decisions
+   - Analyze BDD scenarios and architecture to better understand requirements
 
 2. **Quality Gate: Architecture Validation**
    - Validate architecture is complete and implementable
