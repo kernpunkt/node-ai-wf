@@ -9,7 +9,7 @@ Validate implementation meets BDD scenario requirements.
 ## Process
 1. **Gather Context**
    - Find feature files with story ID prefix
-   - Search IMP memories: story_id:STORY-123, status:active
+   - Search IMP memories: story_id/STORY-123, status/active
 
 2. **Code Formatting and Linting**
    - Run Prettier formatting: `pnpm format`

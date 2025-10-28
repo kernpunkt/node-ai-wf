@@ -22,7 +22,7 @@ Design system architecture and create architectural decisions.
 
 
 3. **Review Existing Architecture**
-   - Search existing ADR memories with status:active for architectural constraints
+   - Search existing ADR memories with status/active for architectural constraints
    - Analyze existing architectural decisions and patterns
    - Identify architectural dependencies and constraints
 
@@ -34,9 +34,9 @@ Design system architecture and create architectural decisions.
 
 5. **Create Architectural Decisions**
    - Create new ADR memories for global architectural decisions if such arise
-   - Tag ADRs with story ID and status:active
+   - Tag ADRs with story ID and status/active
    - If new decisions supersede existing ADRs, edit old ADR to mark as superseded
-   - Replace status:active tag of superseded ADRs with status:superseded
+   - Replace status/active tag of superseded ADRs with status:superseded
    - **⚠️ CRITICAL: Optimize for token efficiency**
      - Use concise decision statements
      - Format: **Decision:** [what], **Rationale:** [why], **Trade-offs:** [pros/cons]
@@ -67,7 +67,7 @@ Design system architecture and create architectural decisions.
 
 7. **Store Architectural Knowledge**
    - Create ARC memories with detailed architectural design
-   - Tag all ARC memories with story ID, component type, and status:active
+   - Tag all ARC memories with story ID, component type, and status/active
    - Use Context7 MCP for package documentation research when needed
    - **⚠️ CRITICAL: Optimize for token efficiency**
      - Use concise bullet points instead of verbose prose

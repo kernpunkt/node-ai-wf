@@ -9,8 +9,8 @@ Comprehensive security assessment.
 ## Process
 1. **Gather Context**
    - Find feature files with story ID prefix
-   - Search ARC memories: story_id:STORY-123, status:active
-   - Search IMP memories: story_id:STORY-123, status:active
+   - Search ARC memories: story_id/STORY-123, status/active
+   - Search IMP memories: story_id/STORY-123, status/active
 
 2. **Identify Files for Security Review**
    - **Identify implementation files** based on ARC memories (component-specific architecture) and IMP memories
@@ -49,7 +49,7 @@ Comprehensive security assessment.
 
 8. **Document Security Findings**
    - Create SEC memories with security findings and patterns
-   - Tag SEC memories with story ID and status:active
+   - Tag SEC memories with story ID and status/active
    - Document specific security issues and recommendations
    - Store security patterns for future reference
    - **⚠️ CRITICAL: Optimize for token efficiency**

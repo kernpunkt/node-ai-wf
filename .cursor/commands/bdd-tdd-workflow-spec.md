@@ -70,11 +70,11 @@ A comprehensive software development workflow optimized for LLM execution, combi
 - Find feature files with story ID prefix
 - Analyze BDD scenarios to understand requirements
 - **Quality Gate**: Validate BDD scenarios are complete and testable
-- Review existing ADR memories with status:active for architectural constraints
+- Review existing ADR memories with status/active for architectural constraints
 - Design system interfaces and contracts
 - Define data models and relationships
 - Plan integration points between components
-- Create new ADR memories for global architectural decisions with story ID tag and status:active
+- Create new ADR memories for global architectural decisions with story ID tag and status/active
 - If new decisions supersede existing ADRs, edit old ADR to mark as superseded and remove active tag
 - **Create ARC memories with detailed architectural design:**
   - **System interfaces and contracts:**
@@ -91,7 +91,7 @@ A comprehensive software development workflow optimized for LLM execution, combi
     - Data flow with Mermaid flowchart diagrams for data movement
     - Event flows with Mermaid sequence diagrams for event-driven interactions
     - API integration with Mermaid sequence diagrams for external API calls
-- Tag all ARC memories with story ID, component type, and status:active
+- Tag all ARC memories with story ID, component type, and status/active
 **Output**: 
 - ADR memories with architectural decisions
 - ARC memories with detailed architectural design (interfaces, data models, integration points)
@@ -101,14 +101,14 @@ A comprehensive software development workflow optimized for LLM execution, combi
 **Input**: Story/Issue ID
 **Process**:
 - Find feature files with story ID prefix
-- Search ARC memories: story_id:STORY-123, status:active
+- Search ARC memories: story_id/STORY-123, status/active
 - Analyze BDD scenarios and architecture to understand requirements
 - **Quality Gate**: Validate architecture is complete and implementable
 - Plan unit test strategy for each component
 - Define implementation order and dependencies
 - Plan integration testing approach
 - Create detailed implementation checklist
-- Create IMP memories with implementation plans, tagged with story ID and status:active
+- Create IMP memories with implementation plans, tagged with story ID and status/active
 **Output**: IMP memories with implementation plans and strategies
 
 ### wf5-write-bdd-steps
@@ -116,8 +116,8 @@ A comprehensive software development workflow optimized for LLM execution, combi
 **Input**: Story/Issue ID
 **Process**:
 - Find feature files with story ID prefix
-- Search ARC memories: story_id:STORY-123, status:active
-- Search IMP memories: story_id:STORY-123, status:active
+- Search ARC memories: story_id/STORY-123, status/active
+- Search IMP memories: story_id/STORY-123, status/active
 - **Quality Gate**: Validate implementation plan is complete and feasible
 - Search existing step definition files for reusable steps
 - Analyze BDD scenarios to understand step requirements
@@ -133,8 +133,8 @@ A comprehensive software development workflow optimized for LLM execution, combi
 **Purpose**: Create comprehensive unit test suite
 **Input**: Story/Issue ID
 **Process**:
-- Search ARC memories: story_id:STORY-123, status:active
-- Search IMP memories: story_id:STORY-123, status:active
+- Search ARC memories: story_id/STORY-123, status/active
+- Search IMP memories: story_id/STORY-123, status/active
 - Analyze implementation plan to understand test requirements
 - Identify components that need testing for this story
 - Write unit tests for each component (organized by component, not story)
@@ -150,8 +150,8 @@ A comprehensive software development workflow optimized for LLM execution, combi
 **Process**:
 - **Quality Gate**: Validate unit tests are comprehensive and complete
 - Find feature files with story ID prefix
-- Search ARC memories: story_id:STORY-123, status:active
-- Search IMP memories: story_id:STORY-123, status:active
+- Search ARC memories: story_id/STORY-123, status/active
+- Search IMP memories: story_id/STORY-123, status/active
 - Analyze BDD scenarios and implementation plan to understand requirements
 - Identify components that need implementation for this story
 - Implement code to make one BDD scenario pass
@@ -166,7 +166,7 @@ A comprehensive software development workflow optimized for LLM execution, combi
 **Input**: Story/Issue ID
 **Process**:
 - Find feature files with story ID prefix
-- Search IMP memories: story_id:STORY-123, status:active
+- Search IMP memories: story_id/STORY-123, status/active
 - Run Prettier formatting: `pnpm format`
 - Run ESLint auto-fix: `pnpm lint:fix`
 - **If ESLint issues remain**: Fix remaining linting issues manually
@@ -185,8 +185,8 @@ A comprehensive software development workflow optimized for LLM execution, combi
 **Input**: Story/Issue ID
 **Process**:
 - Find feature files with story ID prefix
-- Search ARC memories: story_id:STORY-123, status:active
-- Search IMP memories: story_id:STORY-123, status:active
+- Search ARC memories: story_id/STORY-123, status/active
+- Search IMP memories: story_id/STORY-123, status/active
 - **Identify implementation files** based on ARC memories (component-specific architecture)
 - **Identify test files** based on IMP memories (testing strategy)
 - Review code quality and standards
@@ -194,14 +194,14 @@ A comprehensive software development workflow optimized for LLM execution, combi
 - Validate against architecture decisions
 - Identify potential improvements
 - Security review (basic)
-- Create DOC memories with review findings and patterns, tagged with story ID, status:active, topic:review
+- Create DOC memories with review findings and patterns, tagged with story ID, status/active, topic/review
 **Output**: DOC memories with review findings and patterns
 
 ### wf8a-refactor
 **Purpose**: Improve code quality based on review findings
 **Input**: Story/Issue ID
 **Process**:
-- Search DOC memories: story_id:STORY-123, status:active, topic:review
+- Search DOC memories: story_id/STORY-123, status/active, topic/review
 - Apply refactoring improvements based on review findings
 - Ensure all tests still pass after refactoring
 - **Update DOC memories**: Change status from active to resolved for review findings that were addressed
@@ -212,8 +212,8 @@ A comprehensive software development workflow optimized for LLM execution, combi
 **Input**: Story/Issue ID
 **Process**:
 - Find feature files with story ID prefix
-- Search ARC memories: story_id:STORY-123, status:active
-- Search IMP memories: story_id:STORY-123, status:active
+- Search ARC memories: story_id/STORY-123, status/active
+- Search IMP memories: story_id/STORY-123, status/active
 - **Identify implementation files** based on ARC memories (component-specific architecture)
 - Security vulnerability assessment
 - Input validation review
@@ -227,7 +227,7 @@ A comprehensive software development workflow optimized for LLM execution, combi
 **Purpose**: Address security issues identified in security review
 **Input**: Story/Issue ID
 **Process**:
-- Search SEC memories: story_id:STORY-123, status:active, topic:security
+- Search SEC memories: story_id/STORY-123, status/active, topic/security
 - Apply security fixes based on security findings
 - Ensure all tests still pass after security refactoring
 - **Update SEC memories**: Change status from active to resolved for security issues that were addressed
@@ -238,15 +238,15 @@ A comprehensive software development workflow optimized for LLM execution, combi
 **Input**: Story/Issue ID
 **Process**:
 - Find feature files with story ID prefix
-- Search ARC memories: story_id:STORY-123, status:active
-- Search IMP memories: story_id:STORY-123, status:active
+- Search ARC memories: story_id/STORY-123, status/active
+- Search IMP memories: story_id/STORY-123, status/active
 - **Identify implementation files** based on ARC memories (component-specific architecture)
 - **Identify test files** based on IMP memories (testing strategy)
-- Create DOC memories with component-specific API documentation, tagged with story ID, status:active, topic:api
-- Create DOC memories with usage examples, tagged with story ID, status:active, topic:examples
-- Create DOC memories with architectural decisions and diagrams, tagged with story ID, status:active, topic:architecture
-- Create DOC memories with troubleshooting guides, tagged with story ID, status:active, topic:troubleshooting
-- Create DOC memories with documentation patterns and standards, tagged with story ID, status:active, topic:patterns
+- Create DOC memories with component-specific API documentation, tagged with story ID, status/active, topic/api
+- Create DOC memories with usage examples, tagged with story ID, status/active, topic/examples
+- Create DOC memories with architectural decisions and diagrams, tagged with story ID, status/active, topic/architecture
+- Create DOC memories with troubleshooting guides, tagged with story ID, status/active, topic/troubleshooting
+- Create DOC memories with documentation patterns and standards, tagged with story ID, status/active, topic/patterns
 **Output**: DOC memories with comprehensive documentation
 
 ### wf11-create-pull-request

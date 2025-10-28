@@ -12,7 +12,7 @@ Create detailed implementation plan with testing strategy.
    - Analyze story requirements and acceptance criteria, mind story boundaries
    - Review story context and dependencies
    - Find feature files with story ID prefix
-   - Search ARC memories: story_id:STORY-123, status:active and general ADR memories to understand architectural decisions
+   - Search ARC memories: story_id/STORY-123, status/active and general ADR memories to understand architectural decisions
    - Analyze BDD scenarios and architecture to better understand requirements
 
 2. **Quality Gate: Architecture Validation**
@@ -42,7 +42,7 @@ Create detailed implementation plan with testing strategy.
 
 6. **Store Implementation Knowledge**
    - Create IMP memories with implementation plans
-   - Tag IMP memories with story ID and status:active
+   - Tag IMP memories with story ID and status/active
    - Document testing strategies and approaches
    - Store implementation patterns and best practices
    - **⚠️ CRITICAL: Optimize for token efficiency**

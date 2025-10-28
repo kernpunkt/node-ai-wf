@@ -8,7 +8,7 @@ Improve code quality based on review findings.
 
 ## Process
 1. **Retrieve Review Findings**
-   - Search DOC memories: story_id:STORY-123, status:active, topic:review
+   - Search DOC memories: story_id/STORY-123, status/active, topic/review
    - Analyze review findings and recommendations
    - Prioritize refactoring improvements based on impact
 
