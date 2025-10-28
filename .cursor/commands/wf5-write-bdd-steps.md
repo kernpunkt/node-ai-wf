@@ -9,8 +9,8 @@ Implement BDD step definitions.
 ## Process
 1. **Gather Context**
    - Find feature files with story ID prefix
-   - Search ARC memories: story_id:STORY-123, status:active
-   - Search IMP memories: story_id:STORY-123, status:active
+   - Search ARC memories: story_id/STORY-123, status/active
+   - Search IMP memories: story_id/STORY-123, status/active
 
 2. **Quality Gate: Implementation Plan Validation**
    - Validate implementation plan is complete and feasible

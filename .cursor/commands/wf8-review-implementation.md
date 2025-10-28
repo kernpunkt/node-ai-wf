@@ -9,8 +9,8 @@ Comprehensive code review and quality assessment.
 ## Process
 1. **Gather Context**
    - Find feature files with story ID prefix
-   - Search ARC memories: story_id:STORY-123, status:active
-   - Search IMP memories: story_id:STORY-123, status:active
+   - Search ARC memories: story_id/STORY-123, status/active
+   - Search IMP memories: story_id/STORY-123, status/active
 
 2. **Identify Files for Review**
    - **Identify implementation files** based on ARC memories (component-specific architecture)
@@ -48,7 +48,7 @@ Comprehensive code review and quality assessment.
 
 8. **Document Review Findings**
    - Create DOC memories with review findings and patterns
-   - Tag DOC memories with story ID, status:active, topic:review
+   - Tag DOC memories with story ID, status/active, topic/review
    - Document specific issues and recommendations
    - **⚠️ CRITICAL: Optimize for token efficiency**
      - Use bullet lists, not paragraphs

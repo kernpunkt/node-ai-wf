@@ -8,8 +8,8 @@ Create comprehensive unit test suite.
 
 ## Process
 1. **Gather Context**
-   - Search ARC memories: story_id:STORY-123, status:active
-   - Search IMP memories: story_id:STORY-123, status:active
+   - Search ARC memories: story_id/STORY-123, status/active
+   - Search IMP memories: story_id/STORY-123, status/active
    - Analyze implementation plan to understand test requirements
 
 2. **Identify Test Components**

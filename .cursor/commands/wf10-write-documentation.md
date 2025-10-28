@@ -9,8 +9,8 @@ Create comprehensive documentation for humans and LLMs.
 ## Process
 1. **Gather Context**
    - Find feature files with story ID prefix
-   - Search ARC memories: story_id:STORY-123, status:active
-   - Search IMP memories: story_id:STORY-123, status:active
+   - Search ARC memories: story_id/STORY-123, status/active
+   - Search IMP memories: story_id/STORY-123, status/active
 
 2. **Identify Files for Documentation**
    - **Identify implementation files** based on ARC memories (component-specific architecture)
@@ -19,31 +19,31 @@ Create comprehensive documentation for humans and LLMs.
 
 3. **Create API Documentation**
    - Create DOC memories with component-specific API documentation
-   - Tag DOC memories with story ID, status:active, topic:api
+   - Tag DOC memories with story ID, status/active, topic/api
    - Document public interfaces, methods, and parameters
    - Include usage examples and return value descriptions
 
 4. **Create Usage Examples**
    - Create DOC memories with usage examples
-   - Tag DOC memories with story ID, status:active, topic:examples
+   - Tag DOC memories with story ID, status/active, topic/examples
    - Provide practical examples of how to use the components
    - Include common use cases and integration patterns
 
 5. **Create Architectural Documentation**
    - Create DOC memories with architectural decisions and diagrams
-   - Tag DOC memories with story ID, status:active, topic:architecture
+   - Tag DOC memories with story ID, status/active, topic/architecture
    - Document component relationships and data flow
    - Include architectural diagrams and decision rationale
 
 6. **Create Troubleshooting Guides**
    - Create DOC memories with troubleshooting guides
-   - Tag DOC memories with story ID, status:active, topic:troubleshooting
+   - Tag DOC memories with story ID, status/active, topic/troubleshooting
    - Document common issues and solutions
    - Include debugging tips and error handling guidance
 
 7. **Create Documentation Patterns**
    - Create DOC memories with documentation patterns and standards
-   - Tag DOC memories with story ID, status:active, topic:patterns
+   - Tag DOC memories with story ID, status/active, topic/patterns
    - Document documentation best practices
    - Include templates and standards for future documentation
 
