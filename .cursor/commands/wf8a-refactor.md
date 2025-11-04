@@ -8,7 +8,7 @@ Improve code quality based on review findings.
 
 ## Process
 1. **Retrieve Review Findings**
-   - Search DOC memories: story_id/STORY-123, status/active, topic/review
+   - Search CRV memories: story_id/STORY-123, status/active, topic/review
    - Analyze review findings and recommendations
    - Prioritize refactoring improvements based on impact
 
@@ -25,7 +25,7 @@ Improve code quality based on review findings.
    - Check code quality and standards compliance
 
 4. **Update Documentation**
-   - **Update DOC memories**: Change status from active to resolved for review findings that were addressed
+   - **Update CRV memories**: Change status from active to resolved for review findings that were addressed
    - Document any new patterns or improvements discovered
    - Update implementation documentation if needed
 
@@ -38,15 +38,15 @@ Improve code quality based on review findings.
 ## Output
 - Refactored implementation files (organized by component/feature)
 - Improved code quality and maintainability
-- Updated DOC memories with resolved issues
+- Updated CRV memories with resolved issues
 - All tests passing after refactoring
 
 ## Success Criteria
 - Implementation files refactored with improved quality
 - All tests pass after refactoring
-- DOC memories updated with resolved issues
+- CRV memories updated with resolved issues
 - Code quality standards improved
 - Refactoring ready for security review
 
 ## MCP Tools Required
-- Memory Tools: For retrieving and updating DOC memories
+- Memory Tools: For retrieving and updating CRV memories

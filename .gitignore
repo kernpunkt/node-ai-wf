@@ -57,3 +57,10 @@ dist/
 .env.*
 !.env.example
 !.env.*.example
+
+# obsidian
+.obsidian/
+.base
+.canvas
+
+talk/

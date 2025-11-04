@@ -15,11 +15,11 @@ Package implementation for review and integration.
    - Search SEC memories: story_id/STORY-123, status/active
 
 2. **Update Memory Statuses**
-   - Update all active memories for this story from status/active to status:implemented
-   - Update ARC memories: Remove status/active tag, add status:implemented tag
-   - Update IMP memories: Remove status/active tag, add status:implemented tag
-   - Update DOC memories: Remove status/active tag, add status:implemented tag
-   - Update SEC memories: Remove status/active tag, add status:implemented tag
+   - Update all active memories for this story from status/active to status/implemented
+   - Update ARC memories: Remove status/active tag, add status/implemented tag
+   - Update IMP memories: Remove status/active tag, add status/implemented tag
+   - Update DOC memories: Remove status/active tag, add status/implemented tag
+   - Update SEC memories: Remove status/active tag, add status/implemented tag
    - **Note**: ADR memories should remain active as they are architectural decisions that apply beyond the current story
 
 3. **Create Feature Branch**
@@ -62,14 +62,14 @@ Package implementation for review and integration.
 - Feature branch with all implementation
 - Testing instructions and validation
 - Documentation links and references
-- Memory statuses updated to status:implemented
+- Memory statuses updated to status/implemented
 
 ## Success Criteria
 - Pull request created with comprehensive description
 - Feature branch contains all implementation
 - Testing instructions are clear and complete
 - Documentation links are accurate and helpful
-- Memory statuses updated to status:implemented (except ADR memories)
+- Memory statuses updated to status/implemented (except ADR memories)
 - Pull request ready for review and integration
 
 ## MCP Tools Required
