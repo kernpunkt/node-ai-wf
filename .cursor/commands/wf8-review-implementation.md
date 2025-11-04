@@ -47,8 +47,8 @@ Comprehensive code review and quality assessment.
    - Check authentication and authorization patterns
 
 8. **Document Review Findings**
-   - Create DOC memories with review findings and patterns
-   - Tag DOC memories with story ID, status/active, topic/review
+   - Create CRV memories with review findings and patterns
+   - Tag CRV memories with story ID, status/active, topic/review
    - Document specific issues and recommendations
    - **⚠️ CRITICAL: Optimize for token efficiency**
      - Use bullet lists, not paragraphs
@@ -65,18 +65,18 @@ Comprehensive code review and quality assessment.
        ```
 
 ## Output
-- DOC memories with review findings
+- CRV memories with review findings
 - Comprehensive quality assessment
 - Improvement recommendations
 - Security assessment results
 
 
 ## Success Criteria
-- DOC memory created with comprehensive review findings
+- CRV memory created with comprehensive review findings
 - All code quality issues identified and documented
 - Test quality assessed and documented
 - Architecture compliance validated
 - Improvement recommendations provided
 
 ## MCP Tools Required
-- Memory Tools: For retrieving ARC and IMP memories, storing DOC memories
+- Memory Tools: For retrieving ARC and IMP memories, storing CRV memories

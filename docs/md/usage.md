@@ -189,7 +189,21 @@ Use for documenting specific code elements, functions, classes or features, busi
 }
 ```
 
-### 6. **SEC** - Security Considerations and Audits
+### 6. **CRV** - Code Review Findings and Recommendations
+Use for documenting code review findings, recommendations for improvement, code quality assessments, and adherence to standards and best practices.
+
+**Example:**
+```json
+{
+  "title": "Code review findings for MemoryService implementation STORY-123",
+  "content": "# Code Review: MemoryService Implementation for STORY-123\n\n**Review Date:** 2024-01-20\n**Reviewer:** Development Team\n**Status:** Approved with Recommendations\n\n**Code Quality Assessment:**\n- **Overall Quality:** Good adherence to clean code principles\n- **Test Coverage:** 92% coverage with comprehensive unit and integration tests\n- **Performance:** Meets requirements with <200ms response times\n- **Security:** No critical vulnerabilities identified\n\n**Issues Found:**\n\n**Critical Issues:**\n- None\n\n**Major Issues:**\n1. **Error Handling:** Missing error handling for edge case when database connection is lost during transaction (line 45-50)\n   - **Recommendation:** Add connection retry logic with exponential backoff\n   - **Priority:** High\n\n2. **Function Complexity:** `validateMemoryContent()` exceeds complexity threshold (complexity: 12, max: 10)\n   - **Recommendation:** Split into smaller functions: `sanitizeContent()`, `checkSizeLimits()`, `validateFormatting()`\n   - **Priority:** Medium\n\n**Minor Issues:**\n1. **Naming:** Variable `tmp` on line 78 should be renamed to `temporaryMemoryCache` for clarity\n2. **Documentation:** Missing JSDoc comment for `processMemoryBatch()` method\n3. **Type Safety:** Consider using `unknown` instead of `any` in error handler (line 120)\n\n**Positive Findings:**\n- Excellent use of TypeScript types and interfaces\n- Comprehensive error messages that are user-friendly\n- Good separation of concerns between service and repository layers\n- Well-structured test suite with good coverage\n- Performance optimizations (async validation, batch processing) are well-implemented\n\n**Recommendations:**\n1. **Refactoring:** Extract validation logic into separate ValidationService to improve testability\n2. **Testing:** Add edge case tests for concurrent memory creation scenarios\n3. **Performance:** Consider adding caching layer for frequently accessed memories\n4. **Documentation:** Add ADR documenting the decision to use optimistic locking\n\n**Standards Compliance:**\n- ✅ Follows TypeScript coding standards\n- ✅ Adheres to clean code principles\n- ✅ Meets function complexity requirements (except one function)\n- ✅ Proper error handling patterns\n- ✅ Comprehensive test coverage\n\n**Follow-up Actions:**\n- [ ] Address major issues before merge\n- [ ] Update documentation per recommendations\n- [ ] Add missing edge case tests\n- [ ] Create ADR for optimistic locking decision",
+  "category": "CRV",
+  "tags": ["story_id:STORY-123", "code-review", "code-quality", "refactoring", "status:approved"],
+  "sources": ["src/memory/memory-service.ts:1-150", "tests/memory/memory-service.test.ts:1-100"]
+}
+```
+
+### 7. **SEC** - Security Considerations and Audits
 Use for security assessments, vulnerability analysis, and security best practices documentation.
 
 **Example:**
@@ -276,6 +290,10 @@ Use status tags to manage memory lifecycle:
 - Search IMP memories: story_id:STORY-123, category:implementation, status:active
 - Search IMP memories: story_id:STORY-123, category:testing, status:active
 
+# Code Review (wf8)
+- Search CRV memories: story_id:STORY-123, status:active, code-review
+- Search DOC memories: story_id:STORY-123, status:active (for context)
+
 # Security Review (wf11)
 - Search SEC memories: story_id:STORY-123, status:active
 - Search ARC memories: story_id:STORY-123, component:security, status:active
@@ -304,6 +322,7 @@ Use:
 - **ARC**: Document story-specific architectural decisions and component design
 - **IMP**: Document implementation plans and testing strategies
 - **DOC**: Document specific functions, classes, or features
+- **CRV**: Document code review findings and recommendations
 - **SEC**: Document security assessments and best practices
 
 ### 3. **Use Descriptive Titles**
@@ -370,7 +389,7 @@ When you create memories following these patterns, the coverage tool will be abl
 ## Tips for LLMs
 
 1. **Always include specific source references** in the `sources` array if any exist
-2. **Use the appropriate category** (DEF, ARC, ADR, IMP, DOC, SEC) for the type of documentation
+2. **Use the appropriate category** (DEF, ARC, ADR, IMP, DOC, CRV, SEC) for the type of documentation
 3. **Be precise with line ranges** when documenting specific functions or classes
 4. **Link related memories** to create a knowledge graph
 5. **Include code examples** in your documentation content
@@ -386,6 +405,7 @@ When you create memories following these patterns, the coverage tool will be abl
 - **ARC memories**: Document story-specific architectural decisions and component design
 - **IMP memories**: Include detailed implementation plans and testing strategies
 - **DOC memories**: Document specific code elements, business logic, and edge cases
+- **CRV memories**: Document code review findings, quality assessments, and recommendations for improvement
 - **SEC memories**: Focus on security assessments, vulnerabilities, and best practices
 
 This approach ensures your documentation will be fully compatible with the coverage analysis tool and provides maximum value for understanding your codebase's documentation completeness while supporting the BDD/TDD workflow requirements.
