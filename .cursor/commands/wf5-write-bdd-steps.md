@@ -16,6 +16,13 @@ Implement BDD step definitions.
    - Validate implementation plan is complete and feasible
    - Ensure all architectural components are defined
    - Verify testing strategy is comprehensive
+   - **BDD Appropriateness Validation**: Review the feature file to ensure it's appropriate for BDD
+     - Check if scenarios test observable user behavior rather than implementation details
+     - Verify scenarios don't check for file existence, code structure, or string patterns
+     - If the feature file contains structural/implementation checks, stop and inform the user that:
+       - Foundation/infrastructure stories should use unit/integration tests
+       - BDD should be reserved for user-facing behavior
+       - The feature file may need to be refactored or removed
    **⚠️ CRITICAL: If any quality gate criteria are NOT met, you MUST stop processing immediately and yield control back to the user. Do not proceed to the next step until all quality gates pass.**
 
 3. **Analyze Existing Steps**
@@ -31,6 +38,13 @@ Implement BDD step definitions.
 5. **Write Step Definitions**
    - Write new step definitions in TypeScript
    - Implement Given-When-Then steps based on architecture and implementation plans
+   - **Focus on testing observable behavior**, not implementation details:
+     - ✅ Test actual functionality (e.g., "I can create a provider and use it")
+     - ✅ Test user-visible outcomes (e.g., "the command executes successfully")
+     - ✅ Test real workflows (e.g., "I can send a request and receive a response")
+     - ❌ Do NOT check for file existence or code structure
+     - ❌ Do NOT use string matching to verify implementation details
+     - ❌ Do NOT test internal APIs or implementation patterns
    - Add data tables and scenario outlines support
    - Ensure step definitions are reusable and not story-specific
    - Follow existing step definition patterns and conventions
