@@ -1,0 +1,277 @@
+---
+alwaysApply: true
+description: TypeScript patterns optimized for LLM code generation quality and correctness
+---
+
+# LLM-Optimized TypeScript Patterns
+
+This rule enforces patterns that demonstrably reduce LLM errors and improve code correctness. These constraints are based on empirical analysis of where LLMs make fewer mistakes.
+
+## Core Principle
+
+**Optimize for LLM correctness, not human developer preferences.** These patterns constrain the solution space to reduce LLM errors and increase first-attempt success rate.
+
+## Type System Constraints
+
+### Explicit Types Everywhere
+
+- **Function signatures**: Always provide explicit types for all parameters and return values
+  - ✅ `function process(data: ReadonlyArray<Item>): ReadonlyArray<ProcessedItem>`
+  - ❌ `function process(data) { return data.map(...) }`
+
+- **Variable declarations**: Use explicit types when type inference might be ambiguous
+  - ✅ `const items: ReadonlyArray<string> = []`
+  - ❌ `const items = []` (when type isn't immediately obvious)
+
+- **Type boundaries**: All public function boundaries must have explicit types
+  - This includes exported functions, React component props, API handlers
+
+### Immutability by Default
+
+- **Arrays**: Always use `ReadonlyArray<T>` instead of `T[]`
+  - ✅ `function addItem(items: ReadonlyArray<Item>, item: Item): ReadonlyArray<Item>`
+  - ❌ `function addItem(items: Item[], item: Item): Item[]`
+
+- **Objects**: Use `readonly` modifier for object properties
+  - ✅ `interface Config { readonly apiKey: string; readonly timeout: number }`
+  - ❌ `interface Config { apiKey: string; timeout: number }`
+
+- **Updates**: Always use immutable patterns (spread operators, not mutations)
+  - ✅ `return [...items, newItem]`
+  - ❌ `items.push(newItem); return items`
+
+- **Forbidden mutations**: Never use `.push()`, `.pop()`, `.splice()`, `.sort()` in-place, direct property assignment
+
+### Discriminated Unions for State
+
+- **State management**: Use discriminated unions instead of boolean flags
+  - ✅ `type State = { status: 'loading' } | { status: 'error', error: string } | { status: 'success', data: Data }`
+  - ❌ `function handle(isLoading: boolean, hasError: boolean, data?: Data)`
+
+- **Exhaustive checking**: TypeScript will enforce handling all cases
+  - This prevents LLMs from forgetting edge cases
+
+### Result/Option Types for Errors
+
+- **Error handling**: Return errors as values, not exceptions
+  - ✅ `type Result<T, E> = { success: true, data: T } | { success: false, error: E }`
+  - ❌ `async function fetch(): Promise<Data>` (throws exceptions)
+
+- **Explicit error cases**: Types force handling all error paths
+  - LLMs cannot "forget" to handle errors when types require it
+
+### Type Safety Restrictions
+
+- **No `any` type**: Never use `any`, use `unknown` if type is truly unknown
+  - ✅ `function process(data: unknown): Result<Processed, ValidationError>`
+  - ❌ `function process(data: any): any`
+
+- **No type assertions**: Avoid `as` type assertions, use type guards instead
+  - ✅ `if (isValid(data)) { /* data is now typed */ }`
+  - ❌ `const typed = data as ValidData`
+
+- **No `unknown` without validation**: If using `unknown`, must validate before use
+
+- **Limited optional chaining**: Avoid optional chaining deeper than 2 levels
+  - ✅ `data?.user?.name`
+  - ❌ `data?.user?.profile?.settings?.theme?.color`
+
+## Function Design Constraints
+
+### Pure Functions Preferred
+
+- **No side effects**: Functions should not modify external state
+  - ✅ `function transform(input: Input): Output`
+  - ❌ `function process(input: Input): void` (modifies global state)
+
+- **Single responsibility**: Each function does one thing
+  - Maximum 20 lines per function
+  - One level of abstraction per function
+
+- **Explicit dependencies**: No hidden globals or closures that modify external state
+  - ✅ `function calculate(price: number, tax: number): number`
+  - ❌ `function calculate(price: number): number` (uses global tax rate)
+
+### Function Size and Complexity
+
+- **Maximum 20 lines**: Keep functions small and focused
+- **Maximum complexity 10**: Limit cyclomatic complexity
+- **Maximum 3 parameters**: Use objects for complex parameters
+  - ✅ `function createUser(params: { name: string; email: string; age: number }): User`
+  - ❌ `function createUser(name: string, email: string, age: number, role: string, ...): User`
+
+### Early Returns and Guard Clauses
+
+- **Guard clauses**: Use early returns for validation
+  - ✅ `if (!isValid(input)) return { success: false, error: 'Invalid' }`
+  - ❌ Deep nested if-else chains
+
+- **Flat structure**: Avoid deep nesting (max 4 levels)
+
+## Data Structure Patterns
+
+### Readonly Collections
+
+- **Arrays**: `ReadonlyArray<T>` for all array parameters and returns
+- **Objects**: `Readonly<Record<string, T>>` for object maps
+- **Tuples**: Use readonly tuples when appropriate
+
+### Validation at Boundaries
+
+- **Input validation**: Validate and transform at function boundaries
+- **Trust internally**: Once validated, trust the types internally
+- **Type guards**: Use type guard functions for runtime validation
+
+## Error Handling Patterns
+
+### Explicit Error Handling
+
+- **No silent failures**: All errors must be handled or explicitly propagated
+- **Result types**: Use `Result<T, E>` pattern for operations that can fail
+- **No implicit try/catch**: Explicitly handle errors, don't rely on default behavior
+
+### Error Types
+
+- **Specific error types**: Use discriminated unions for different error cases
+- **Meaningful messages**: Error messages should be actionable
+
+## Architecture Constraints
+
+### Unidirectional Data Flow
+
+- **Data flows down**: Props/parameters flow down
+- **Events flow up**: Callbacks/events flow up
+- **No circular dependencies**: Avoid bidirectional data flow
+
+### Separation of Concerns
+
+- **Pure logic separate from effects**: Business logic separate from I/O
+- **Small modules**: Maximum 300 lines per file
+- **Clear boundaries**: Each module has a single, clear purpose
+
+## Forbidden Patterns
+
+### Type System
+
+- ❌ `any` type
+- ❌ Type assertions (`as` keyword)
+- ❌ `@ts-ignore` or `@ts-expect-error` without detailed explanation
+- ❌ Optional chaining deeper than 2 levels
+- ❌ Generics with more than 2 type parameters
+
+### Mutations
+
+- ❌ Array mutations (`.push()`, `.pop()`, `.splice()`, `.sort()` in-place)
+- ❌ Object property mutations (direct assignment to parameters)
+- ❌ Reassigning function parameters
+
+### Classes
+
+- ❌ Classes with inheritance (use composition instead)
+- ❌ Classes unless necessary for React components or framework requirements
+- ❌ `super()` calls (easy for LLMs to forget)
+
+### Implicit Behavior
+
+- ❌ Implicit returns (always explicit `return` statement)
+- ❌ Implicit type conversions
+- ❌ Hidden side effects
+- ❌ Global state mutations
+
+## When Writing Code
+
+### Code Generation Order
+
+1. **Define types/interfaces first** - Establish the data structures
+2. **Write pure functions** - Business logic without side effects
+3. **Compose functions** - Build complex behavior from simple functions
+4. **Add React components last** - UI is the final layer
+5. **Include example usage** - Show how to use the code
+
+### Code Structure
+
+- **Types at top**: Type definitions before implementations
+- **Pure functions before effects**: Logic before I/O
+- **Small to large**: Build from simple to complex
+- **Explicit over implicit**: Always be explicit about types and behavior
+
+## Examples
+
+### Good Pattern: Immutable Array Update
+
+```typescript
+function addItem(
+  items: ReadonlyArray<Item>,
+  item: Item
+): ReadonlyArray<Item> {
+  return [...items, item];
+}
+```
+
+### Good Pattern: Discriminated Union State
+
+```typescript
+type LoadingState = { status: 'loading' };
+type ErrorState = { status: 'error'; error: string };
+type SuccessState = { status: 'success'; data: Data };
+type State = LoadingState | ErrorState | SuccessState;
+
+function handleState(state: State): string {
+  switch (state.status) {
+    case 'loading':
+      return 'Loading...';
+    case 'error':
+      return `Error: ${state.error}`;
+    case 'success':
+      return `Data: ${state.data}`;
+  }
+}
+```
+
+### Good Pattern: Result Type for Errors
+
+```typescript
+type Result<T, E> =
+  | { success: true; data: T }
+  | { success: false; error: E };
+
+async function fetchData(): Promise<Result<Data, FetchError>> {
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      return { success: false, error: { message: 'HTTP error' } };
+    }
+    const data = await response.json();
+    return { success: true, data };
+  } catch (error) {
+    return { success: false, error: { message: String(error) } };
+  }
+}
+```
+
+### Bad Pattern: Mutations and Implicit Types
+
+```typescript
+// ❌ BAD: Mutations, implicit types, no error handling
+function processItems(items) {
+  items.push(newItem);
+  items.sort();
+  return items;
+}
+```
+
+## Measurement Goals
+
+When following these patterns, expect:
+
+- **60-70% first-attempt success** (vs ~30-40% in unconstrained TypeScript)
+- **90% of errors caught by TypeScript** (vs ~50% in loose TypeScript)
+- **2-3 iterations to working code** (vs 5-7 in unconstrained TypeScript)
+
+## Integration with TypeScript Config
+
+These patterns work best with strict TypeScript configuration. See [tsconfig.json](mdc:tsconfig.json) for recommended compiler options.
+
+## Integration with ESLint
+
+These patterns are enforced by ESLint rules. See [eslint.config.js](mdc:eslint.config.js) for recommended linting rules.

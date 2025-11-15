@@ -217,6 +217,29 @@ Use for security assessments, vulnerability analysis, and security best practice
 }
 ```
 
+### 8. **TMO** - Threat Models
+Use for documenting threat models that define security attack vectors, assets to protect, potential attackers, and mitigation strategies. Threat models serve as the foundation for security reviews (wf9) by establishing the security context and identifying what needs to be protected.
+
+**Example:**
+```json
+{
+  "title": "Memory system threat model and security boundaries",
+  "content": "# Memory System Threat Model\n\n**Purpose:** Define security context, assets, attackers, and threats for comprehensive security assessment.\n\n**Assets to Protect:**\n- **User Data:** Memory content, personal information, sensitive notes\n- **Authentication Credentials:** User passwords, API keys, session tokens\n- **System Integrity:** Memory database, search indexes, file storage\n- **Privacy:** User data isolation, access control, data encryption\n\n**Potential Attackers:**\n- **External Attackers:** Malicious users attempting unauthorized access\n- **Insider Threats:** Authorized users with malicious intent\n- **Automated Attacks:** Bots, scrapers, automated exploit tools\n- **Advanced Persistent Threats:** Sophisticated attackers with resources and persistence\n\n**Attack Vectors and Entry Points:**\n- **Web Interface:** User input forms, API endpoints, authentication flows\n- **API Endpoints:** REST API, GraphQL queries, webhook handlers\n- **File Storage:** Memory persistence layer, backup systems, export functions\n- **Search Index:** FlexSearch index manipulation, query injection\n- **Network:** HTTP/HTTPS communication, WebSocket connections\n\n**Threat Scenarios:**\n- **Injection Attacks:** SQL injection, NoSQL injection, command injection via user input\n- **Authentication Bypass:** Session hijacking, token theft, password brute force\n- **Authorization Violations:** Privilege escalation, unauthorized data access\n- **Data Exposure:** Information disclosure in error messages, insecure data transmission\n- **Denial of Service:** Resource exhaustion, search index flooding, file system attacks\n- **Data Integrity:** Memory tampering, search index corruption, backup manipulation\n\n**Security Boundaries:**\n- **Authentication Boundary:** All operations require valid authentication\n- **Authorization Boundary:** Role-based access control for memory operations\n- **Data Boundary:** Encryption at rest and in transit for sensitive data\n- **Input Boundary:** All user inputs validated and sanitized at entry points\n- **Network Boundary:** HTTPS only, secure WebSocket connections\n\n**Mitigation Strategies:**\n- **Input Validation:** Comprehensive input sanitization and validation\n- **Authentication:** Multi-factor authentication, secure session management\n- **Authorization:** Principle of least privilege, role-based access control\n- **Encryption:** AES-256 for data at rest, TLS 1.3 for data in transit\n- **Monitoring:** Security event logging, anomaly detection, audit trails\n- **Testing:** Regular security testing, penetration testing, vulnerability scanning\n\n**Risk Assessment:**\n- **High Risk:** Authentication bypass, data breach, unauthorized access\n- **Medium Risk:** Data exposure, denial of service, input validation failures\n- **Low Risk:** Information disclosure in logs, minor configuration issues\n\n**Threat Model Framework:**\n- **STRIDE:** Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service, Elevation of Privilege\n- **OWASP Top 10:** Focus on injection, broken authentication, sensitive data exposure\n- **Attack Trees:** Document attack paths and mitigation strategies",
+  "category": "TMO",
+  "tags": ["threat-model", "security", "attack-vectors", "risk-assessment"],
+  "sources": ["docs/security/", "src/memory/", "src/utils/"]
+}
+```
+
+**Integration with Security Review (wf9):**
+TMO memories serve as the foundation for security reviews by:
+- Defining what assets need protection
+- Identifying potential attackers and their capabilities
+- Establishing security boundaries and entry points
+- Providing threat scenarios to validate against
+- Guiding security assessment focus areas
+- Ensuring all identified threats have corresponding security controls
+
 ## Source Reference Format
 
 The `sources` array is crucial for coverage analysis. Use these formats:
@@ -294,7 +317,9 @@ Use status tags to manage memory lifecycle:
 - Search CRV memories: story_id:STORY-123, status:active, code-review
 - Search DOC memories: story_id:STORY-123, status:active (for context)
 
-# Security Review (wf11)
+# Security Review (wf9)
+- Search TMO memories: story_id:STORY-123, status:active (threat model foundation)
+- Search TMO memories: status:active (project-level threat model)
 - Search SEC memories: story_id:STORY-123, status:active
 - Search ARC memories: story_id:STORY-123, component:security, status:active
 ```
@@ -389,7 +414,7 @@ When you create memories following these patterns, the coverage tool will be abl
 ## Tips for LLMs
 
 1. **Always include specific source references** in the `sources` array if any exist
-2. **Use the appropriate category** (DEF, ARC, ADR, IMP, DOC, CRV, SEC) for the type of documentation
+2. **Use the appropriate category** (DEF, ARC, ADR, IMP, DOC, CRV, SEC, TMO) for the type of documentation
 3. **Be precise with line ranges** when documenting specific functions or classes
 4. **Link related memories** to create a knowledge graph
 5. **Include code examples** in your documentation content
@@ -407,5 +432,6 @@ When you create memories following these patterns, the coverage tool will be abl
 - **DOC memories**: Document specific code elements, business logic, and edge cases
 - **CRV memories**: Document code review findings, quality assessments, and recommendations for improvement
 - **SEC memories**: Focus on security assessments, vulnerabilities, and best practices
+- **TMO memories**: Document threat models defining assets, attackers, attack vectors, and mitigation strategies as foundation for security reviews
 
 This approach ensures your documentation will be fully compatible with the coverage analysis tool and provides maximum value for understanding your codebase's documentation completeness while supporting the BDD/TDD workflow requirements.
