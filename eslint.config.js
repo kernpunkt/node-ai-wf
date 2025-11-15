@@ -59,16 +59,53 @@ export default [
       'no-var': 'error',
       'no-console': 'warn',
       
+      // LLM-Optimized: Prevent mutations (immutability)
+      'no-param-reassign': ['error', { 'props': true }],
+      'no-array-constructor': 'error',
+      
+      // LLM-Optimized: Prevent implicit returns
+      'consistent-return': 'error',
+      
       // TypeScript Best Practices (ktcode: TypeScript-First Architecture)
       '@typescript-eslint/no-unused-vars': ['error', { 'argsIgnorePattern': '^_' }],
-      '@typescript-eslint/explicit-function-return-type': 'off',
-      '@typescript-eslint/explicit-module-boundary-types': 'off',
-      '@typescript-eslint/no-explicit-any': 'warn',
+      
+      // LLM-Optimized: Explicit types reduce LLM errors
+      '@typescript-eslint/explicit-function-return-type': 'error',
+      '@typescript-eslint/explicit-module-boundary-types': 'error',
+      
+      // LLM-Optimized: No any type (use unknown instead)
+      '@typescript-eslint/no-explicit-any': 'error',
+      '@typescript-eslint/no-unsafe-assignment': 'error',
+      '@typescript-eslint/no-unsafe-call': 'error',
+      '@typescript-eslint/no-unsafe-member-access': 'error',
+      '@typescript-eslint/no-unsafe-return': 'error',
+      
+      // LLM-Optimized: Immutability patterns
       '@typescript-eslint/prefer-readonly': 'error',
+      '@typescript-eslint/prefer-readonly-parameter-types': [
+        'warn',
+        {
+          'checkParameterProperties': true,
+          'ignoreInferredTypes': false
+        }
+      ],
+      
+      // Type inference and consistency
       '@typescript-eslint/no-inferrable-types': 'error',
       '@typescript-eslint/consistent-type-imports': ['error', { 'prefer': 'type-imports' }],
       '@typescript-eslint/prefer-as-const': 'error',
       '@typescript-eslint/no-unnecessary-type-constraint': 'error',
+      
+      // LLM-Optimized: Prevent type assertions (use type guards instead)
+      '@typescript-eslint/consistent-type-assertions': [
+        'error',
+        {
+          'assertionStyle': 'never'
+        }
+      ],
+      
+      // LLM-Optimized: No non-null assertions (forces explicit null checks)
+      '@typescript-eslint/no-non-null-assertion': 'error',
       
       // CLI Application Specific
       'no-process-exit': 'error',

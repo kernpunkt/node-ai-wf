@@ -172,6 +172,7 @@ The workflow follows a systematic approach from project planning to pull request
 | Command | Purpose | Description |
 |---------|---------|-------------|
 | `wf0-define-goal` | Project Planning | Define project vision, requirements, user personas, and MVP scope |
+| `wf0a-create-threatmodel` | Threat Modeling | Create threat model documentation for security assessment foundation |
 | `wf1-create-agent-mode` | Agent Configuration | Create AI agent personality and technical expertise profile |
 | `wf2-create-user-stories` | Story Creation | Generate user stories from project goals and create them in Jira or GitHub |
 | `wf3-translate-to-bdd` | BDD Translation | Convert user stories into detailed BDD scenarios with Gherkin syntax |
