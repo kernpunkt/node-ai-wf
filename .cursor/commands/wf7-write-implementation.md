@@ -8,6 +8,14 @@ Implement BDD scenarios.
 
 ## Process
 1. **Quality Gate: Unit Test Validation**
+   - **Run unit tests**: Execute `pnpm test` to verify tests are runnable
+   - **Verify test failures**: All tests must fail because implementation is missing, not due to test errors
+   - **Validate test specificity**: Ensure tests specify behavior with:
+     - Specific input values (not undefined, null, or generic values)
+     - Specific expected outputs (not just "not null" or "exists")
+     - Complete test implementations (no TODOs, placeholders, or empty bodies)
+   - **Check test coverage**: Verify tests cover all components from implementation plan
+   - **Review test quality**: Tests must be meaningful specifications, not placeholders
    - Validate unit tests are comprehensive and complete
    - Ensure all components have corresponding unit tests
    - Verify test coverage meets standards
@@ -24,6 +32,8 @@ Implement BDD scenarios.
    - Map scenarios to required implementations
 
 4. **Implement Code**
+   - **Replace skeleton implementations** with actual working code
+   - **Use skeleton function signatures as the contract** - implement the behavior specified by tests
    - Implement code to make BDD scenarios pass
    - Ensure all related unit tests pass
    - Follow clean code standards and project conventions
@@ -38,6 +48,7 @@ Implement BDD scenarios.
 
 ## Output
 - Implementation files (organized by component/feature)
+- Skeleton implementations replaced with working code
 - Code that passes BDD scenarios (green phase after red phase in wf5-wf6)
 - Unit tests that pass
 - Clean, maintainable code
