@@ -9,10 +9,10 @@ Package implementation for review and integration.
 ## Process
 1. **Gather Implementation Context**
    - Review all files created or modified for this story
-   - Search ARC memories: story_id/STORY-123, status/active
-   - Search IMP memories: story_id/STORY-123, status/active
-   - Search DOC memories: story_id/STORY-123, status/active
-   - Search SEC memories: story_id/STORY-123, status/active
+   - Search ARC memories: STORY-123, status/active
+   - Search IMP memories: STORY-123, status/active
+   - Search DOC memories: STORY-123, status/active
+   - Search SEC memories: STORY-123, status/active
 
 2. **Update Memory Statuses**
    - Update all active memories for this story from status/active to status/implemented

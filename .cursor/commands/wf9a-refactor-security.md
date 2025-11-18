@@ -8,7 +8,7 @@ Address security issues identified in security review.
 
 ## Process
 1. **Retrieve Security Findings**
-   - Search SEC memories: story_id/STORY-123, status/active
+   - Search SEC memories: STORY-123, status/active
    - Analyze security findings and recommendations
    - Prioritize security fixes based on severity and impact
 
