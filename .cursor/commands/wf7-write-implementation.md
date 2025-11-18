@@ -15,8 +15,8 @@ Implement BDD scenarios.
 
 2. **Gather Context**
    - Find feature files with story ID prefix
-   - Search ARC memories: story_id/STORY-123, status/active
-   - Search IMP memories: story_id/STORY-123, status/active
+   - Search ARC memories: STORY-123, status/active
+   - Search IMP memories: STORY-123, status/active
 
 3. **Analyze Requirements**
    - Analyze BDD scenarios and implementation plan to understand requirements

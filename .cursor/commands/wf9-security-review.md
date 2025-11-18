@@ -9,10 +9,10 @@ Comprehensive security assessment.
 ## Process
 1. **Gather Context and Threat Model Foundation**
    - Find feature files with story ID prefix
-   - **Search TMO memories: story_id/STORY-123, status/active** (story-specific threat model)
+   - **Search TMO memories: STORY-123, status/active** (story-specific threat model)
    - **Search TMO memories: status/active** (project-level threat model if no story-specific exists)
-   - Search ARC memories: story_id/STORY-123, status/active
-   - Search IMP memories: story_id/STORY-123, status/active
+   - Search ARC memories: STORY-123, status/active
+   - Search IMP memories: STORY-123, status/active
    - **Extract threat model context:** Assets to protect, potential attackers, attack vectors, threat scenarios, security boundaries, and mitigation strategies from TMO memories
 
 2. **Identify Files for Security Review**

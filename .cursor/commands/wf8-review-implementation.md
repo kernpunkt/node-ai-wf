@@ -9,8 +9,8 @@ Comprehensive code review and quality assessment.
 ## Process
 1. **Gather Context**
    - Find feature files with story ID prefix
-   - Search ARC memories: story_id/STORY-123, status/active
-   - Search IMP memories: story_id/STORY-123, status/active
+   - Search ARC memories: STORY-123, status/active
+   - Search IMP memories: STORY-123, status/active
 
 2. **Identify Files for Review**
    - **Identify implementation files** based on ARC memories (component-specific architecture)
