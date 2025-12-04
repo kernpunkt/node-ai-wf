@@ -64,3 +64,6 @@ dist/
 .canvas
 
 talk/
+
+#cucumber
+reports/
