@@ -175,6 +175,7 @@ The workflow follows a systematic approach from project planning to pull request
 | `wf0a-create-threatmodel` | Threat Modeling | Create threat model documentation for security assessment foundation |
 | `wf1-create-agent-mode` | Agent Configuration | Create AI agent personality and technical expertise profile |
 | `wf2-create-user-stories` | Story Creation | Generate user stories from project goals and create them in Jira or GitHub |
+| `wf2a-break-down-stories` | Story Split | Split one story into several smaller stories |
 | `wf3-translate-to-bdd` | BDD Translation | Convert user stories into detailed BDD scenarios with Gherkin syntax |
 | `wf4a-plan-architecture` | Architecture Design | Design system architecture, interfaces, and data models |
 | `wf4b-plan-implementation` | Implementation Planning | Create detailed implementation plan with testing strategy |
@@ -205,6 +206,7 @@ Commands are used directly in the Cursor chat interface:
 - `/wf0-define-goal` - Start project planning
 - `/wf1-create-agent-mode` - Create custom AI agent mode
 - `/wf2-create-user-stories` - Create user stories in Jira or GitHub
+- `/wf2a-break-down-stories github issue 123` - Break down a user story in Jira or GitHub
 - `/wf3-translate-to-bdd github issue 123` - Translate story #123 to BDD scenarios
 - `/wf4a-plan-architecture github issue 123` - Plan architecture for story #123
 - `/wf4b-plan-implementation github issue 123` - Plan implementation for story #123
@@ -231,9 +233,10 @@ The commands follow these principles:
 1. **Start with `wf0-define-goal`** to establish your project vision and user personas
 2. **Use `wf1-create-agent-mode`** to create a specialized AI agent for your project
 3. **Run `wf2-create-user-stories`** to generate and create user stories in Jira or GitHub
-4. **Select a story** and run `wf3-translate-to-bdd` to convert it to BDD scenarios
-5. **Follow the sequence** through architecture, implementation, testing, and review
-6. **Complete the cycle** with `wf7a-validate-implementation`, `wf8-review-implementation`, and `wf11-create-pull-request`
+4. **Run `wf2a-break-down-stories`** to break down a user story into smaller user stories in Jira or GitHub
+5. **Select a story** and run `wf3-translate-to-bdd` to convert it to BDD scenarios
+6. **Follow the sequence** through architecture, implementation, testing, and review
+7. **Complete the cycle** with `wf7a-validate-implementation`, `wf8-review-implementation`, and `wf11-create-pull-request`
 
 ### Memory Management
 
