@@ -11,7 +11,7 @@ Generate user stories from project goals and create them in project management s
 ## Process
 1. **Retrieve Project Foundation**
    - Search for DEF memories with project goals and user personas
-   - Analyze MVP scope and full project vision
+   - Analyze MVP scope and full project goal
    - Review user personas and their needs
 
 2. **Generate User Stories**

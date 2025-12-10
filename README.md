@@ -171,7 +171,7 @@ The workflow follows a systematic approach from project planning to pull request
 
 | Command | Purpose | Description |
 |---------|---------|-------------|
-| `wf0-define-goal` | Project Planning | Define project vision, requirements, user personas, and MVP scope |
+| `wf0-define-goal` | Project Planning | Define project goal, requirements, user personas, and MVP scope |
 | `wf0a-create-threatmodel` | Threat Modeling | Create threat model documentation for security assessment foundation |
 | `wf1-create-agent-mode` | Agent Configuration | Create AI agent personality and technical expertise profile |
 | `wf2-create-user-stories` | Story Creation | Generate user stories from project goals and create them in Jira or GitHub |
@@ -228,7 +228,7 @@ The commands follow these principles:
 
 ### Getting Started with Workflows
 
-1. **Start with `wf0-define-goal`** to establish your project vision and user personas
+1. **Start with `wf0-define-goal`** to establish your project goal and user personas
 2. **Use `wf1-create-agent-mode`** to create a specialized AI agent for your project
 3. **Run `wf2-create-user-stories`** to generate and create user stories in Jira or GitHub
 4. **Select a story** and run `wf3-translate-to-bdd` to convert it to BDD scenarios
