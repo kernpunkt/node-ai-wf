@@ -120,7 +120,7 @@ Remember: **One high-quality documentation memory is worth ten trivial ones.** F
 When creating memories for code documentation, use these specific categories:
 
 ### 1. **DEF** - Project Definitions and Goals
-Use for project-level definitions, goals, user personas, MVP scope, and overall project vision.
+Use for project-level definitions, goals, user personas, MVP scope, and overall project goal.
 
 **Example:**
 ```json

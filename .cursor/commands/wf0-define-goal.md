@@ -1,7 +1,7 @@
 # Workflow Step 0: Define Project Goal
 
 ## Objective
-Engage in a collaborative discussion with the user to understand their project vision, gather requirements, and create a comprehensive project goal document that serves as the foundation for all future development work.
+Engage in a collaborative discussion with the user to understand their project goal, gather requirements, and create a comprehensive project goal document that serves as the foundation for all future development work.
 
 ## ⚠️ Critical Context Warning
 **IMPORTANT**: When this workflow step is executed, the codebase contains ONLY:
@@ -20,7 +20,7 @@ Engage in a collaborative discussion with the user to understand their project v
 ## Instructions
 
 ### 1. Initial Discussion and Context Gathering
-- Ask the user to describe their project vision and what they want to accomplish
+- Ask the user to describe their project goal and what they want to accomplish
 - **Check if the user has any existing documents** (specifications, wireframes, requirements docs, etc.) that can provide context
 - Listen carefully to their description and identify the core problem or opportunity
 - Ask clarifying questions to understand the context and scope
@@ -94,8 +94,8 @@ Work with the user to define a Minimum Viable Product:
 - What user feedback mechanisms will be in place?
 - What are the key metrics to track?
 
-### 5. Full Product Vision Discussion
-Explore the complete vision for the final product:
+### 5. Full Product Goal Discussion
+Explore the complete project goal for the final product:
 
 #### Extended Functionality
 - What additional features would make this a comprehensive solution?
@@ -176,7 +176,7 @@ After creating the initial memory:
 - Update memory if needed using `mcp_memory-tools_edit_mem`
 
 ## Expected Outcome
-- Clear understanding of project vision and requirements
+- Clear understanding of project goal and requirements
 - Comprehensive memory created with title "project-goal" and category "DEF"
 - Detailed user personas documented for primary and secondary users
 - Well-defined MVP scope with clear success criteria
